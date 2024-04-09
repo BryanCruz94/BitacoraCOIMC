@@ -19,6 +19,11 @@ class UserSeeder extends Seeder
             'last_names' => 'Test User',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
+            'identification_card' => '123456789',
+            'phone' => '123456789',
+            'rank_id' => 1,
+            'military_unit_id' => 1,
+            'is_active' => 1,
             'created_at' => now(),
             'updated_at' => now(),
             ])->assignRole('Admin');

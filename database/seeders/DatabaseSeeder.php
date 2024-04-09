@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(RoleSeeder::class);
+        $this->call(Ranks_Seeder::class);
+        $this->call(Military_Unit_Seeder::class);
         $this->call(UserSeeder::class);
+
     }
 }
