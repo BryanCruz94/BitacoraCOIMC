@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'COIMC | ',
+    'title_prefix' => 'FME | ',
     'title_postfix' => '',
 
     /*
@@ -63,12 +63,15 @@ return [
     |
     */
 
-    'logo' => '<b>BITÁCORA</b>COIMC',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    //'logo' => '<b>FUERTE MILITAR </b> ECUADOR',
+    'logo' => '<font size="3"><b>FUERTE MILITAR </b></font><font size="3">ECUADOR</font>',
+    'logo_img' => 'vendor/adminlte/dist/img/escudo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
+    //'dashboard_url' => 'home',
+    //'url' =>'home'
 
     /*
     |--------------------------------------------------------------------------
@@ -86,7 +89,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'vendor/adminlte/dist/img/escudo.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -136,9 +139,9 @@ return [
     'usermenu_enabled' => true,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
-    'usermenu_image' => false,
-    'usermenu_desc' => false,
-    'usermenu_profile_url' => false,
+    'usermenu_image' => true,
+    'usermenu_desc' => true,
+    'usermenu_profile_url' => false, //para perfiles junto a salir
 
     /*
     |--------------------------------------------------------------------------
@@ -191,13 +194,13 @@ return [
     */
 
     'classes_body' => '',
-    'classes_brand' => '',
+    'classes_brand' => '', //bg-white para menu en blanco
     'classes_brand_text' => '',
-    'classes_content_wrapper' => '',
-    'classes_content_header' => '',
+    'classes_content_wrapper' => '', //contenido del centro
+    'classes_content_header' => '', //estilos de fondo
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
-    'classes_sidebar_nav' => '',
+    'classes_sidebar' => 'sidebar-dark-success elevation-4',
+    'classes_sidebar_nav' => '', //clase para nabvar
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
@@ -235,10 +238,10 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
     |
     */
-
-    'right_sidebar' => false,
+    // MENU DERECHO PARA CONFIGURACION
+    'right_sidebar' => false, 
     'right_sidebar_icon' => 'fas fa-cogs',
-    'right_sidebar_theme' => 'white',
+    'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
     'right_sidebar_push' => true,
     'right_sidebar_scrollbar_theme' => 'os-theme-light',
@@ -255,7 +258,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
-
+    //RUTAS A DONDE DIRECCIONAR
     'use_route_url' => false,
     'dashboard_url' => 'home',
     'logout_url' => 'logout',
@@ -294,22 +297,12 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
         [
-            'type' => 'navbar-search',
-            'text' => 'searchr',
-            'topnav_right' => true,
+            'text'=>'Inicio',
+            'url'=>'#',
+            'topnav'=> true
         ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'Buscar',
-        ],
+        
         ['header' => 'MENÚ DE OPCIONES'],
         [
             'text' => 'blog',
@@ -330,6 +323,12 @@ return [
             'icon' => 'fas fa-car',
         ],
         [
+            'text' => 'REGISTRO PERSONAL CIVIL',
+            'url' => 'admin/settings',
+            'icon' => 'fas fa-walking',
+        ],        
+        
+        [
             'text' => 'CONSIGNAS',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-book',
@@ -339,12 +338,21 @@ return [
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-tasks',  
         ],
+        [
+            'text' => 'AUTORIZACIÓN DE SALIDA ',
+            'icon' => 'fas fa-fw fa-user-tie',
+            //'icon_color' => 'success', 
+            'url' => '#',
+        ],
+
         ['header' => 'PERMISOS'],
         [
             'text' => 'ADMINISTRADOR',
-            'icon_color' => 'red',
+            'icon' => 'fas fa-fw fa-user-tie',
+            //'icon_color' => 'success', 
             'url' => '#',
         ],
+        
 
     ],
 

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,12 +17,13 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     * 
      */
     protected $fillable = [
         'names',
         'email',
         'password',
-        'last_names'
+        'last_names',
     ];
 
     /**
@@ -31,8 +32,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password','remember_token',
     ];
 
     /**
@@ -44,4 +44,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function adminlte_image(){
+
+        return 'https://picsum.photos/300/300';
+
+    }
+    public function adminlte_desc(){
+
+        return "Administrador";
+
+    }
+    public function adminlte_profile_url(){
+
+        return 'Perfil/username';
+
+    }
+    public function showMenu()
+    {
+        $user = auth()->user(); // Obtener el usuario autenticado
+
+        return view('menu', ['user' => $user]);
+    }
 }
