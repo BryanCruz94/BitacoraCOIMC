@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('destination');
             $table->string('mission');
-            $table->foreignId('user');
+            $table->boolean('authorized_2commander')->default(false);
+            $table->foreignId('user_id');
             $table->foreignId('vehicle_id');
             $table->foreignId('driver_id');
-            $table->foreign('user')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
             $table->foreign('driver_id')->references('id')->on('drivers');
 
