@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrador')
+@section('title', 'INICIO')
 
 @section('content_header')
 <div style="text-align: center;">
@@ -10,21 +10,12 @@
 @stop
 
 @section('content')
-<div class="card">
-        <div class="card-header">
-            <div style="text-align: center;">
-                <h1 class="card.title" style="font-size: 24px;">BITÁCORA DE REGISTRO DE NOVEDADES</h1>
-                <h1 style="font-size: 20px;">SECCIÓN ADMINISTRADOR</h1>
-            </div>
-        </div>
-    </div>
-@stop
-
-@section('content_header')
-<div class="row justify-content-center align-items-center bg-white text-center" >
-    <div class="col">
-        <h1 style="color: black;">SECCIÓN ADMINISTRADOR</h1>
+<div class="row">
+    <div class="col ">
+        <img class="img-fluid img-border img-round"
+        src="{{ asset('vendor/adminlte/dist/img/FFAA_WP.jpg') }}" alt="IMAGEN FONDO">
     </div>
 </div>
-
 @stop
+
+

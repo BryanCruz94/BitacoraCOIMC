@@ -14,6 +14,7 @@ class CivilianLog extends Model
         "hour_out",
         "names",
         "last_names",
+        "identification_card",
         "activity",
         "userIn_id",
         "userOut_id",

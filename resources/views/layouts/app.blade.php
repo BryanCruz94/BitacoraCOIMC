@@ -8,11 +8,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -22,8 +23,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container"  >
-            <a class="navbar-brand" href="{{ url('/') }}" style="font-weight: bold; font-family:'Arial Black', sans-serif;font-size: 24px; 
-                background-image: url('{{ asset('images/ecu.png') }}'); 
+            <a class="navbar-brand" href="{{ url('/') }}" style="font-weight: bold; font-family:'Arial Black', sans-serif;font-size: 24px;
+                background-image: url('{{ asset('images/ecu.png') }}');
                 background-size:46px; background-repeat: no-repeat; padding-left: 50px;">
                 FUERTE MILITAR ECUADOR
                 <i class="fas fa-flag" style="margin-left: 5px;"></i>
@@ -85,5 +86,8 @@
             @yield('content')
         </main>
     </div>
+
+
+
 </body>
 </html>

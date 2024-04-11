@@ -26,7 +26,21 @@ class UserSeeder extends Seeder
             'is_active' => 1,
             'created_at' => now(),
             'updated_at' => now(),
-            ])->assignRole('Admin');
+        ])->assignRole('Admin');
+
+        User::create([
+            'names' => 'Bryan',
+            'last_names' => 'Cruz',
+            'email' => 'bc@gmail.com',
+            'password' => Hash::make('admin'),
+            'identification_card' => '1718324765',
+            'phone' => '0959113863',
+            'rank_id' => 11,
+            'military_unit_id' => 1,
+            'is_active' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ])->assignRole('Admin');
 
         //Se crean 5 usuarios de prueba
         //User::factory(5)->create();
