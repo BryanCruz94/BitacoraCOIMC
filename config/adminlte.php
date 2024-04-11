@@ -113,7 +113,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'mode' => 'fullscreen',
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
@@ -239,7 +239,7 @@ return [
     |
     */
     // MENU DERECHO PARA CONFIGURACION
-    'right_sidebar' => false, 
+    'right_sidebar' => false,
     'right_sidebar_icon' => 'fas fa-cogs',
     'right_sidebar_theme' => 'dark',
     'right_sidebar_slide' => true,
@@ -297,12 +297,8 @@ return [
     */
 
     'menu' => [
-        [
-            'text'=>'Inicio',
-            'url'=>'#',
-            'topnav'=> true
-        ],
-        
+
+
         ['header' => 'MENÚ DE OPCIONES'],
         [
             'text' => 'blog',
@@ -311,12 +307,12 @@ return [
         ],
         [
             'text' => 'NOVEDADES',
-            'url' => 'admin/pages',
+            'url' => 'binacle',
             'icon' => 'far fa-fw fa-file',
 
             'label_color' => 'success',
         ],
-        
+
         [
             'text' => 'MOVIMIENTO VEHICULAR',
             'url' => 'admin/settings',
@@ -326,22 +322,22 @@ return [
             'text' => 'REGISTRO PERSONAL CIVIL',
             'url' => 'admin/settings',
             'icon' => 'fas fa-walking',
-        ],        
-        
+        ],
+
         [
             'text' => 'CONSIGNAS',
-            'url' => 'admin/settings',
+            'url' => 'pendings',
             'icon' => 'fas fa-fw fa-book',
         ],
         [
             'text' => 'REPORTES',
             'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-tasks',  
+            'icon' => 'fas fa-fw fa-tasks',
         ],
         [
             'text' => 'AUTORIZACIÓN DE SALIDA ',
             'icon' => 'fas fa-fw fa-user-tie',
-            //'icon_color' => 'success', 
+            //'icon_color' => 'success',
             'url' => '#',
         ],
 
@@ -349,10 +345,10 @@ return [
         [
             'text' => 'ADMINISTRADOR',
             'icon' => 'fas fa-fw fa-user-tie',
-            //'icon_color' => 'success', 
-            'url' => '#',
+            //'icon_color' => 'success',
+            'url' => 'admin',
         ],
-        
+
 
     ],
 
@@ -392,7 +388,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
