@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoveltyController;
 use App\Http\Controllers\PendingTaskController;
+use App\Http\Controllers\CivillianLogController;
 
 
 
@@ -31,6 +32,12 @@ Route::get('/pendings', [PendingTaskController::class,'index'])->middleware('aut
 Route::post('/pendings/newPending', [PendingTaskController::class,'store'])->middleware('auth')->name("pending.store");
 Route::post('/pendings/edit/{id}', [PendingTaskController::class, 'edit'])->middleware('auth')-> name ('pendings.editDone');
 Route::post('/pendings/update/{id}', [PendingTaskController::class, 'update'])->middleware('auth')->name('pendings.update');
+/****************** FIN RUTAS PARA LAS CONSIGNAS ****************/
+
+
+/****************** INICIO RUTAS PARA MOVIMIENTO DE CIVILES ****************/
+Route::get('/civilians', [CivillianLogController::class, 'index'])->middleware('auth')->name('civilians.index');
+Route::post('/civilians/newEntrance', [CivillianLogController::class,'store'])->middleware('auth')->name("civilians.store");
 
 Auth::routes();
 

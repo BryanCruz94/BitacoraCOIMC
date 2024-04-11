@@ -13,23 +13,26 @@ class PendingTaskController extends Controller
     public function index()
     {
         $penddings = PendingTask::join('users as g', 'g.id', '=', 'pending_tasks.userCreate_id')
+            ->join('ranks as r', 'g.rank_id', '=', 'r.code')
             ->where('pending_tasks.task_done', 0)
             ->orderBy('pending_tasks.id')
             ->get([
                 'pending_tasks.id', 'pending_tasks.hour_create', 'pending_tasks.pending_task',
-                DB::raw("CONCAT(g.names, ' ', g.last_names) as guardCreate")
+                DB::raw("CONCAT(r.name,' ',g.last_names, ' ', g.names) as guardCreate")
             ]);
 
         $penddingsDone = PendingTask::join('users as gc', 'gc.id', '=', 'pending_tasks.userCreate_id')
             ->join('users as gd', 'gd.id', '=', 'pending_tasks.userDone_id')
+            ->join('ranks as rd', 'gd.rank_id', '=', 'rd.code')
+            ->join('ranks as rc', 'gc.rank_id', '=', 'rc.code')
             ->orderByDesc('pending_tasks.hour_create')
             ->limit(50)
             ->get([
                 'pending_tasks.pending_task',
                 'pending_tasks.hour_create',
                 'pending_tasks.hour_done',
-                DB::raw("CONCAT(gc.names, ' ', gc.last_names) as guardCreate"),
-                DB::raw("CONCAT(gd.names, ' ', gd.last_names) as guardDone"),
+                DB::raw("CONCAT(rc.name, ' ', gc.names, ' ', gc.last_names) as guardCreate"),
+                DB::raw("CONCAT(rd.name, ' ', gd.names, ' ', gd.last_names) as guardDone"),
                 'pending_tasks.observations'
             ]);
 

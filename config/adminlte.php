@@ -320,7 +320,7 @@ return [
         ],
         [
             'text' => 'REGISTRO PERSONAL CIVIL',
-            'url' => 'admin/settings',
+            'url' => 'civilians',
             'icon' => 'fas fa-walking',
         ],
 

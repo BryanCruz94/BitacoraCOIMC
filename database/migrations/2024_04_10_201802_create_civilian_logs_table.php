@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->dateTime('hour_in');
             $table->dateTime('hour_out')->nullable();
+            $table->string('identification_card');
             $table->string('names');
             $table->string('last_names');
             $table->string('activity');
