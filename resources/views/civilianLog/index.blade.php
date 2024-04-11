@@ -159,7 +159,7 @@
                     <div class="modal-body">
 
                         <div id="modificarRegistro" class="row mt-3" style="">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-sm-12 ">
                                 <div class="form-group">
                                     <label for="names">Nombres:</label>
                                     <input type="text" class="form-control" name="names" id="names" required>

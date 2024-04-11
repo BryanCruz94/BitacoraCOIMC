@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Validation\Rule;
 class RegisterController extends Controller
 {
     /*
@@ -47,11 +47,13 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
-        return Validator::make($data, [    
-            'password' => ['required', 'string', 'min:5', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/'],        
-        ]); 
-    }
+{
+    return Validator::make($data, [    
+        'password' => ['required', 'string', 'min:5', 'regex:/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]+$/'],
+        'identification_card' => ['required', 'string', Rule::unique('users')],
+        'email' => ['required', 'string', 'email', Rule::unique('users')],
+    ]);
+}
 
     /**
      * Create a new user instance after a valid registration.
@@ -59,9 +61,11 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
+     
     protected function create(array $data)
     { 
-        
+    
         return User::create([
             'names' => $data['names'],
             'last_names' => $data['last_names'],
@@ -74,6 +78,11 @@ class RegisterController extends Controller
             'military_unit_id' => $data['military_unit_id'],
             'is_active' => true,
         ]);
-         
-    }    
+        
+    } 
+
+  
 }
+
+   
+ 
