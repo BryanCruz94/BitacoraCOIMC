@@ -10,12 +10,13 @@ class Vehicle extends Model
     use HasFactory;
 
     protected $fillable=[
+        "id",
         "description",
         "plate",
         "in_barracks",
         "military_unit_id",
         "is_active",
-        
+
     ];
 
 

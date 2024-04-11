@@ -50,6 +50,14 @@ class PendingTaskController extends Controller
         $pending->userCreate_id = auth()->user()->id;
 
         $pending->save();
+
+        // Se crea un String para guardar la novedad en la tabla Novelties
+        $noveltie = new Novelty();
+        $noveltie->hour = Carbon::now()->setTimezone('America/Guayaquil');
+        $noveltie->novelty = 'Se ha creado la consigna: ' . $request->newPendding;
+        $noveltie->user_id = auth()->user()->id;
+        $noveltie->save();
+        
         return redirect()->route('pending.index');
     }
 

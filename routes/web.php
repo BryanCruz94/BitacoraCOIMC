@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\NoveltyController;
 use App\Http\Controllers\PendingTaskController;
 use App\Http\Controllers\CivillianLogController;
+use App\Http\Controllers\VehicleController;
 
 
 
@@ -38,6 +39,13 @@ Route::post('/pendings/update/{id}', [PendingTaskController::class, 'update'])->
 /****************** INICIO RUTAS PARA MOVIMIENTO DE CIVILES ****************/
 Route::get('/civilians', [CivillianLogController::class, 'index'])->middleware('auth')->name('civilians.index');
 Route::post('/civilians/newEntrance', [CivillianLogController::class,'store'])->middleware('auth')->name("civilians.store");
+Route::post('/civilians/newExit/{id}', [CivillianLogController::class,'edit'])->middleware('auth')->name("civilians.edit");
+Route::post('/civilians/update/{id}', [CivillianLogController::class,'update'])->middleware('auth')->name("civilians.update");
+/****************** FIN RUTAS PARA MOVIMIENTO DE CIVILES ****************/
+
+/****************** INICIO RUTAS PARA ADMINISTRACIÓN VEHICULAR ****************/
+Route::get('/admin/vehicles', [VehicleController::class, 'index'])->middleware('auth')->name('vehicles.index');
+Route::post('/admin/vehicles/newVehicle', [VehicleController::class,'store'])->middleware('auth')->name("vehicles.store");
 
 Auth::routes();
 
