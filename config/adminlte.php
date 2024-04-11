@@ -137,8 +137,8 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header' => true,
+    'usermenu_header_class' => 'bg-info',
     'usermenu_image' => true,
     'usermenu_desc' => true,
     'usermenu_profile_url' => false, //para perfiles junto a salir
@@ -339,8 +339,13 @@ return [
             'icon' => 'fas fa-fw fa-tasks',  
         ],
         [
+            'text' => 'GENERAR SALVOCONDUCTO',
+            'url' => 'admin/settings',
+            'icon' => 'fas fa-fw fa-pencil-alt',  
+        ],
+        [
             'text' => 'AUTORIZACIÓN DE SALIDA ',
-            'icon' => 'fas fa-fw fa-user-tie',
+            'icon' => 'fas fa-fw fa-edit',
             //'icon_color' => 'success', 
             'url' => '#',
         ],

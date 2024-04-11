@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+use Spatie\Permission\Models\Role;//roles de usuario
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
@@ -48,22 +50,18 @@ class User extends Authenticatable
     public function adminlte_image(){
 
         return 'https://picsum.photos/300/300';
-
+        return 'Perfil/username';
+          
     }
     public function adminlte_desc(){
 
         return "Administrador";
 
     }
+    
     public function adminlte_profile_url(){
 
         return 'Perfil/username';
 
-    }
-    public function showMenu()
-    {
-        $user = auth()->user(); // Obtener el usuario autenticado
-
-        return view('menu', ['user' => $user]);
     }
 }
