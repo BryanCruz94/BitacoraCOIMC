@@ -6,7 +6,7 @@
 @section('content_header')
 <div class="row justify-content-center align-items-center bg-white text-center" >
     <div class="col">
-        <h1 style="color: red;">SECCIÓN ADMINISTRADOR</h1>
+        <h1 style="color: black;">SECCIÓN ADMINISTRADOR</h1>
     </div>
 </div>
 
@@ -14,26 +14,31 @@
 
 @section('content')
 
-
     <div class="row justify-content-center">
-        <div class="col-md-6 mb-3">
-            <a href="{{route('vehicles.index')}}" class="btn btn-primary btn-lg d-flex flex-column align-items-center" style="width: 100%;">
-                <img src="https://images.unsplash.com/photo-1620059116993-398c21ce8406?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen Vehicular" style="height: 190px;">
-                Administración Vehicular
+        <div class="col-lg-6 col-sm-12 col-md-6 mb-2"> 
+            <a href="{{route('vehicles.index')}}" class="btn btn-primari btn-lg d-flex flex-column align-items-center">
+                <i class="fas fa-car fa-3x mb-2"></i> <!-- Icono de Font Awesome -->                
+                <span style="font-size: 15px; color: black;">VEHICULAR </span>
             </a>
         </div>
 
-        <div class="col-md-6 mb-3">
-            <a href="#" class="btn btn-danger btn-lg d-flex flex-column align-items-center" style="width: 100%;">
-                <img src="https://images.unsplash.com/photo-1615563164538-89e1da13fcc4?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen Conductores" style="height: 190px;">
-                Administración Conductores
+        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
+            <a href="#" class="btn btn-dangerR btn-lg d-flex flex-column align-items-center">
+            <i class="fas fa-user fa-3x mb-2"></i>
+                <span style="font-size: 15px; color: black;">CONDUCTORES</span>
             </a>
         </div>
 
-        <div class="col-md-6 mb-3">
-            <a href="#" class="btn btn-warning btn-lg d-flex flex-column align-items-center" style="width: 100%;">
-                <img src="https://plus.unsplash.com/premium_photo-1698168909964-a1624df677e4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagen Conductores" style="height: 190px;">
-                Administración Usuarios
+        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
+            <a href="#" class="btn btn-warnin btn-lg d-flex flex-column align-items-center">
+                <i class="fas fa-user fa-3x mb-2"></i>
+                <span style="font-size: 15px; color: black;">USUARIOS</span>
+            </a>
+        </div>
+        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
+            <a href="#" class="btn btn-succes btn-lg d-flex flex-column align-items-center">
+            <i class="fas fa-home fa-3x mb-2"></i>
+                <span style="font-size: 15px; color: black;">UNIDAD MILITAR</span>
             </a>
         </div>
     </div>

@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 use Spatie\Permission\Models\Role;//roles de usuario
+use Illuminate\Support\Facades\Auth; // importar la clase Auth NUEVO
 
 class User extends Authenticatable
 {
@@ -57,12 +58,20 @@ class User extends Authenticatable
     public function adminlte_image(){
 
         return 'https://picsum.photos/300/300';
-        return 'Perfil/username';
           
     }
     public function adminlte_desc(){
 
-        return "Administrador";
+        // Obtener el usuario autenticado
+    $user = Auth::user();
+
+    // Verificar si el usuario está autenticado y tiene nombre y apellidos
+    if ($user && $user->names && $user->last_names) {
+        
+        return $user->names . ' ' . $user->last_names; // Devuelve nombre completo
+    }
+
+    return 'Usuario'; // En caso de no haber nombre o apellidos definidos
 
     }
     
