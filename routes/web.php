@@ -46,6 +46,10 @@ Route::post('/civilians/update/{id}', [CivillianLogController::class,'update'])-
 /****************** INICIO RUTAS PARA ADMINISTRACIÓN VEHICULAR ****************/
 Route::get('/admin/vehicles', [VehicleController::class, 'index'])->middleware('auth')->name('vehicles.index');
 Route::post('/admin/vehicles/newVehicle', [VehicleController::class,'store'])->middleware('auth')->name("vehicles.store");
+Route::post('/admin/vehicles/edit/{id}', [VehicleController::class, 'edit'])->middleware('auth')-> name ('vehicles.edit');
+Route::post('/admin/vehicles/update', [VehicleController::class, 'update'])->middleware('auth')->name('vehicles.update');
+Route::post('/admin/vehicles/delete/{id}', [VehicleController::class, 'delete'])->middleware('auth')->name('vehicles.delete');
+Route::post('/admin/vehicles/destroy/{id}', [VehicleController::class, 'destroy'])->middleware('auth')->name('vehicles.destroy');
 
 Auth::routes();
 
