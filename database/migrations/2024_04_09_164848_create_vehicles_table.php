@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('plate')->unique();
             $table->boolean('in_barracks');
+            $table->string('img_url')->nullable();
             $table->foreign('military_unit_id')->references('id')->on('military_units');
             $table->timestamps();
             $table->boolean('is_active');

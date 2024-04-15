@@ -14,6 +14,7 @@ class Vehicle extends Model
         "description",
         "plate",
         "in_barracks",
+        "img_url",
         "military_unit_id",
         "is_active",
 
