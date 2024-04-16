@@ -78,7 +78,7 @@
 
 
                                     <td class="text-center align-middle">
-                                        <form action="{{ route('vehicles.edit', $dato->id) }}" method="POST">
+                                        <form action="{{ route('drivers.edit', $dato->id) }}" method="POST">
                                             @csrf
                                             <button class="btn btn-secondary btn-sm" data-toggle="modal">
                                                 <span class="fas fa-user-edit"></span>
@@ -86,7 +86,7 @@
                                         </form>
                                     </td>
                                     <td class="text-center align-middle">
-                                        <form action="{{ route('vehicles.delete', $dato->id) }}" method="POST">
+                                        <form action="{{ route('drivers.delete', $dato->id) }}" method="POST">
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm">
                                                 <span class="fas fa-user-times"></span>

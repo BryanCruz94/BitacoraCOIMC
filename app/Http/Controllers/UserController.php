@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function indexA()
     {
-        $numero = 5+5;
-        return view('userIndex', compact('numero'));
+        User::all()
+        return view('admin.index');
     }
 }

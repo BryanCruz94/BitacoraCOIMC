@@ -4,52 +4,56 @@
 
 @section('content_header')
 
-<div class="row justify-content-center align-items-center bg-white text-center" >
-    <div class="col">
-        <h1 style="color: black; font-weight: bold;">SECCIÓN ADMINISTRADOR</h1>
+    <div class="row justify-content-center align-items-center bg-white text-center">
+        <div class="col">
+            <h1 style="color: black; font-weight: bold;">SECCIÓN ADMINISTRADOR</h1>
+        </div>
     </div>
-</div>
 
 @stop
 
 @section('content')
-<div class="main-content" style="background-image: url('{{ asset('vendor/adminlte/dist/img/home.jpg') }}'); background-size: cover; padding: 60px;">
-    <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
-            <a href="{{route('vehicles.index')}}" class="btn btn-primari btn-lg d-flex flex-column align-items-center">
-                <i class="fas fa-car fa-3x mb-2"></i> <!-- Icono de Font Awesome -->
-                <span style="font-size: 15px; color: black;">VEHICULAR </span>
-            </a>
-        </div>
-            <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
+    <div class="main-content"
+        style="background-image: url('{{ asset('vendor/adminlte/dist/img/home.jpg') }}'); background-size: cover; padding: 60px;">
+        <div class="row justify-content-center">
+            {{-- <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
+                <a href="{{ route('vehicles.index') }}" class="btn btn-primari btn-lg d-flex flex-column align-items-center">
+                    <i class="fas fa-car fa-3x mb-2"></i> <!-- Icono de Font Awesome -->
+                    <span style="font-size: 15px; color: black;">VEHICULAR </span>
+                </a>
+            </div> --}}
+            <div class="col-lg-6 col-sm-12 col-md-7 mb-5 border-1 bg-opacity">
                 <a href="{{route('vehicles.index')}}" class="btn btn-lg d-flex flex-column align-items-center">
                 <img src="{{ asset('vendor/adminlte/dist/img/vehiculo.png') }}" alt="Conductor" style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
                     <span style="font-size: 15px; color: black; font-weight: bold;">VEHICULAR </span>
                 </a>
             </div>
 
-        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
+            {{-- <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
             <a href="{{route('drivers.index')}}" class="btn btn-dangerR btn-lg d-flex flex-column align-items-center">
             <i class="fas fa-user fa-3x mb-2"></i>
                 <span style="font-size: 15px; color: black;">CONDUCTORES</span>
             </a>
-        </div>
+        </div> --}}
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
                 <a href="#" class="btn btn-lg d-flex flex-column align-items-center">
-                <img src="{{ asset('vendor/adminlte/dist/img/conductor.png') }}" alt="Conductor" style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
+                    <img src="{{ asset('vendor/adminlte/dist/img/conductor.png') }}" alt="Conductor"
+                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
                     <span style="font-size: 15px; color: black; font-weight: bold;">CONDUCTORES</span>
                 </a>
             </div>
 
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
                 <a href="#" class="btn btn-lg d-flex flex-column align-items-center">
-                <img src="{{ asset('vendor/adminlte/dist/img/usuario.png') }}" alt="Conductor" style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
+                    <img src="{{ asset('vendor/adminlte/dist/img/usuario.png') }}" alt="Conductor"
+                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
                     <span style="font-size: 15px; color: black; font-weight: bold;">USUARIOS</span>
                 </a>
             </div>
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
                 <a href="#" class="btn btn-lg d-flex flex-column align-items-center">
-                <img src="{{ asset('vendor/adminlte/dist/img/cuartel.png') }}" alt="Conductor" style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
+                    <img src="{{ asset('vendor/adminlte/dist/img/cuartel.png') }}" alt="Conductor"
+                        style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
                     <span style="font-size: 15px; color: black; font-weight: bold;">UNIDAD MILITAR</span>
                 </a>
             </div>
@@ -62,7 +66,8 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 
 @stop
-
