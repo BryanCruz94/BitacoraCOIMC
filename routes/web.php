@@ -9,7 +9,6 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 
 
-
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
@@ -56,6 +55,21 @@ Route::post('/admin/vehicles/destroy/{id}', [VehicleController::class, 'destroy'
 /****************** INICIO RUTAS PARA ADMINISTRACIÓN DE CONDUCTORES ****************/
 Route::get('/admin/drivers', [DriverController::class, 'index'])->middleware('auth')->name('drivers.index');
 Route::post('/admin/drivers/newDriver', [DriverController::class,'store'])->middleware('auth')->name("drivers.store");
+Route::post('/admin/drivers/edit/{id}', [DriverController::class, 'edit'])->middleware('auth')-> name ('drivers.edit');
+Route::post('/admin/drivers/update', [DriverController::class, 'update'])->middleware('auth')->name('drivers.update');
+Route::post('/admin/drivers/delete/{id}', [DriverController::class, 'delete'])->middleware('auth')->name('drivers.delete');
+Route::post('/admin/drivers/destroy/{id}', [DriverController::class, 'destroy'])->middleware('auth')->name('drivers.destroy');
+/****************** FIN RUTAS PARA ADMINISTRACIÓN DE CONDUCTORES ****************/
+
+/****************** INICIO RUTAS PARA ADMINISTRACIÓN DE USUARIOS ****************/
+Route::get('/admin/users', [UserController::class, 'index'])->middleware('auth')->name('users.index');
+Route::post('/admin/users/edit/{id}', [UserController::class,'edit'])->middleware('auth')->name("users.edit");
+Route::post('/admin/users/update', [UserController::class,'update'])->middleware('auth')->name("users.update");
+/****************** FIN RUTAS PARA ADMINISTRACIÓN DE USUARIOS ****************/
+
+/****************** INICIO RUTAS PARA ADMINISTRACIÓN DE UNIDADES MILITARES ****************/
+Route::get('/admin/military_units', [MilitaryUnitController::class, 'index'])->middleware('auth')->name('military_units.index');
+
 
 Auth::routes();
 

@@ -34,6 +34,10 @@
 
                                     
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a6bf8664c2c71297dbff89f7012c8e1391985b85
                                     <div class="form-group row mb-2">
                                         <label for="last_names" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
 
@@ -51,6 +55,10 @@
                                     
                                     
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a6bf8664c2c71297dbff89f7012c8e1391985b85
                                     <div class="form-group row mb-2">
                                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
@@ -96,8 +104,12 @@
                                             @enderror
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     
                                    
+=======
+
+>>>>>>> a6bf8664c2c71297dbff89f7012c8e1391985b85
                                     <div class="form-group row mb-2">
                                         <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
@@ -112,6 +124,20 @@
                                         </div>
                                     </div>
                                     
+                                    
+
+                                    <div class="form-group row">
+                                        <img id="user-photo">
+                                        <label for="btn-photo" class="col-md-4 col-form-label text-md-right">{{ __('Selecciona una imagen') }}</label>
+                                        <div class="col-md-6">
+                                            <input id="btn-photo" type="file" class="form-control @error('user-photo') is-invalid @enderror" name="image" required autofocus onchange="previewImage(event)">
+                                            @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     
 
                                     <div class="col-4">
@@ -176,5 +202,11 @@
         <img src="{{ asset('images/uempe.png') }}" alt="Icono 3" style="width: 100px; height: 120px; margin: 0 20px;">
     </div>
 --}}
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+<script src="resources/js/servicio-imagen.js"></script>
+
 </body>
+
+
 @endsection
