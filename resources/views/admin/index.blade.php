@@ -15,15 +15,15 @@
 @section('content')
 
     <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12 col-md-6 mb-2"> 
+        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
             <a href="{{route('vehicles.index')}}" class="btn btn-primari btn-lg d-flex flex-column align-items-center">
-                <i class="fas fa-car fa-3x mb-2"></i> <!-- Icono de Font Awesome -->                
+                <i class="fas fa-car fa-3x mb-2"></i> <!-- Icono de Font Awesome -->
                 <span style="font-size: 15px; color: black;">VEHICULAR </span>
             </a>
         </div>
 
         <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
-            <a href="#" class="btn btn-dangerR btn-lg d-flex flex-column align-items-center">
+            <a href="{{route('drivers.index')}}" class="btn btn-dangerR btn-lg d-flex flex-column align-items-center">
             <i class="fas fa-user fa-3x mb-2"></i>
                 <span style="font-size: 15px; color: black;">CONDUCTORES</span>
             </a>

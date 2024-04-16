@@ -6,6 +6,7 @@ use App\Http\Controllers\NoveltyController;
 use App\Http\Controllers\PendingTaskController;
 use App\Http\Controllers\CivillianLogController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\DriverController;
 
 
 
@@ -50,6 +51,11 @@ Route::post('/admin/vehicles/edit/{id}', [VehicleController::class, 'edit'])->mi
 Route::post('/admin/vehicles/update', [VehicleController::class, 'update'])->middleware('auth')->name('vehicles.update');
 Route::post('/admin/vehicles/delete/{id}', [VehicleController::class, 'delete'])->middleware('auth')->name('vehicles.delete');
 Route::post('/admin/vehicles/destroy/{id}', [VehicleController::class, 'destroy'])->middleware('auth')->name('vehicles.destroy');
+/****************** FIN RUTAS PARA ADMINISTRACIÓN VEHICULAR ****************/
+
+/****************** INICIO RUTAS PARA ADMINISTRACIÓN DE CONDUCTORES ****************/
+Route::get('/admin/drivers', [DriverController::class, 'index'])->middleware('auth')->name('drivers.index');
+Route::post('/admin/drivers/newDriver', [DriverController::class,'store'])->middleware('auth')->name("drivers.store");
 
 Auth::routes();
 

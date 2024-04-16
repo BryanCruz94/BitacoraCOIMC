@@ -71,6 +71,7 @@
                                     <td class="text-center">
                                         <img src="{{ $dato->img_url }}" alt="Imagen del vehículo" class="img-thumbnail"
                                             style="width: 125px; height: 100px;">
+                                    </td>
                                     <td class="text-center align-middle">
                                         <form action="{{ route('vehicles.edit', $dato->id) }}" method="POST">
                                             @csrf
