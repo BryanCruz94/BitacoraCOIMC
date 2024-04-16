@@ -337,12 +337,12 @@ return [
         [
             'text' => 'GENERAR SALVOCONDUCTO',
             'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-pencil-alt',  
+            'icon' => 'fas fa-fw fa-pencil-alt',
         ],
         [
             'text' => 'AUTORIZACIÓN DE SALIDA ',
             'icon' => 'fas fa-fw fa-edit',
-            //'icon_color' => 'success', 
+            //'icon_color' => 'success',
             'url' => '#',
         ],
 

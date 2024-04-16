@@ -11,16 +11,9 @@
         "bootstrap": "^5.2.3",
         "laravel-vite-plugin": "^1.0.0",
         "sass": "^1.56.1",
-<<<<<<< HEAD
         "vite": "^5.2.8"
     },
     "dependencies": {
         "@strapi/provider-upload-cloudinary": "^4.23.0"
-=======
-        "vite": "^5.0.0"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^6.5.2"
->>>>>>> ed9f0bb4732530b73a796f21dbe3645f97c19ed9
     }
 }
