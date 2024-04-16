@@ -1,20 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<body style="background-image: url('{{ asset('images/fondo1.jpg') }}'); background-size: 90% 150%; margin: 0; padding: 0;">
-    <div class="container"style="margin-top: 60px;">
+<body style="background-image: url('{{ asset('images/fondo1.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; margin: 0; padding: 0; height: 100vh;">
+    <div class="container"style="margin-top: 10px;">
+
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                <div class="card-header text-center">{!! __('<strong>Registrar</strong>') !!}</div>
 
+
+                <div class="card">
+                    <div class="card-header text-center">{!! __('<strong>Registrar</strong>') !!}</div>
+                    
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
             
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="names" class="col-md-4 col-form-label text-md-right">{{ __('Nombres') }}</label>
 
                                         <div class="col-md-6">
@@ -29,9 +32,9 @@
                                     </div>
 
 
+                                    
 
-
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="last_names" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
 
                                         <div class="col-md-6">
@@ -45,9 +48,10 @@
                                         </div>
                                     </div>
 
+                                    
+                                    
 
-
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                                         <div class="col-md-6">
@@ -60,8 +64,9 @@
                                             @enderror
                                         </div>
                                     </div>
+                                  
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="identification_card" class="col-md-4 col-form-label text-md-right">{{ __('Número de Identificación') }}</label>
 
                                         <div class="col-md-6">
@@ -74,9 +79,11 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    
+                                    
 
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>
 
                                         <div class="col-md-6">
@@ -89,8 +96,9 @@
                                             @enderror
                                         </div>
                                     </div>
-
-                                    <div class="form-group row">
+                                    
+                                   
+                                    <div class="form-group row mb-2">
                                         <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
                                         <div class="col-md-6">
@@ -103,9 +111,11 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    
+                                    
 
                                     <div class="col-4">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                                 <label for="rank_id">Seleccione su grado:</label>
                                                 <select name="rank_id" id="rank_id" required>
                                                     <option value=1 select>S.P</option>
@@ -126,9 +136,11 @@
                                                 </select>
                                         </div>
                                     </div>
+                                    
+                                  
 
                                     <div class="col-4">
-                                        <div class="form-group">
+                                        <div class="form-group mb-2">
                                                 <label for="military_unit_id">Seleccione su unidad:</label>
                                                 <select name="military_unit_id" id="military_unit_id" required>
                                                     <option value=1 select>COIMC</option>
