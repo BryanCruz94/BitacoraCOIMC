@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <body style="background-image: url('{{ asset('images/fondo1.jpg') }}'); background-size: 90% 150%; margin: 0; padding: 0;">
     <div class="container" style="margin-top: 100px;">
         <div class="row justify-content-center">
@@ -80,3 +81,4 @@
     </div>
 </body>
 @endsection
+
