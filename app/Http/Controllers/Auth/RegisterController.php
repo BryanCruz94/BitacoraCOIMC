@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+
 class RegisterController extends Controller
 {
     /*
@@ -76,12 +77,11 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'rank_id' => $data['rank_id'],
             'military_unit_id' => $data['military_unit_id'],
-            'is_active' => true,
+            'is_active' => true
         ]);
         
-    } 
+    }
 
-  
 }
 
    

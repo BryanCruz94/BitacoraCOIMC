@@ -5,6 +5,19 @@
 "keywords": ["laravel", "framework"],
 "license": "MIT",
 "require": {
+<<<<<<< HEAD
+        "php": "^8.1",
+        "almasaeed2010/adminlte": "~3.0",
+        "guzzlehttp/guzzle": "^7.2",
+        "jeroennoten/laravel-adminlte": "^3.11",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.5",
+        "spatie/laravel-permission": "^6.4",
+        "cloudinary/cloudinary_php": "^2"        
+    },
+=======
                 "php": "^8.1",
                 "almasaeed2010/adminlte": "~3.0",
                 "cloudinary-labs/cloudinary-laravel": "^2.1",
@@ -16,6 +29,7 @@
                 "laravel/ui": "^4.5",
                 "spatie/laravel-permission": "^6.4"
         },
+>>>>>>> ed9f0bb4732530b73a796f21dbe3645f97c19ed9
 "require-dev": {
                                 "fakerphp/faker": "^1.9.1",
                                 "laravel-lang/common": "^6.2",
