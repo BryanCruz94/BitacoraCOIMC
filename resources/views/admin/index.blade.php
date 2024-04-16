@@ -15,25 +15,12 @@
 @section('content')
 <div class="main-content" style="background-image: url('{{ asset('vendor/adminlte/dist/img/home.jpg') }}'); background-size: cover; padding: 60px;">
     <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
-            <a href="{{route('vehicles.index')}}" class="btn btn-primari btn-lg d-flex flex-column align-items-center">
-                <i class="fas fa-car fa-3x mb-2"></i> <!-- Icono de Font Awesome -->
-                <span style="font-size: 15px; color: black;">VEHICULAR </span>
-            </a>
-        </div>
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
                 <a href="{{route('vehicles.index')}}" class="btn btn-lg d-flex flex-column align-items-center">
                 <img src="{{ asset('vendor/adminlte/dist/img/vehiculo.png') }}" alt="Conductor" style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
                     <span style="font-size: 15px; color: black; font-weight: bold;">VEHICULAR </span>
                 </a>
             </div>
-
-        <div class="col-lg-6 col-sm-12 col-md-6 mb-2">
-            <a href="{{route('drivers.index')}}" class="btn btn-dangerR btn-lg d-flex flex-column align-items-center">
-            <i class="fas fa-user fa-3x mb-2"></i>
-                <span style="font-size: 15px; color: black;">CONDUCTORES</span>
-            </a>
-        </div>
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
                 <a href="#" class="btn btn-lg d-flex flex-column align-items-center">
                 <img src="{{ asset('vendor/adminlte/dist/img/conductor.png') }}" alt="Conductor" style="width: 100px; height: 100px; object-fit: cover; border-radius: 20%;">
