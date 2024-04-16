@@ -9,7 +9,6 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 
 
-
 Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
@@ -64,6 +63,13 @@ Route::post('/admin/drivers/destroy/{id}', [DriverController::class, 'destroy'])
 
 /****************** INICIO RUTAS PARA ADMINISTRACIÓN DE USUARIOS ****************/
 Route::get('/admin/users', [UserController::class, 'index'])->middleware('auth')->name('users.index');
+Route::post('/admin/users/edit/{id}', [UserController::class,'edit'])->middleware('auth')->name("users.edit");
+Route::post('/admin/users/update', [UserController::class,'update'])->middleware('auth')->name("users.update");
+/****************** FIN RUTAS PARA ADMINISTRACIÓN DE USUARIOS ****************/
+
+/****************** INICIO RUTAS PARA ADMINISTRACIÓN DE UNIDADES MILITARES ****************/
+Route::get('/admin/military_units', [MilitaryUnitController::class, 'index'])->middleware('auth')->name('military_units.index');
+
 
 Auth::routes();
 
