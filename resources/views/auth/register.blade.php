@@ -14,7 +14,7 @@
 
             
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="names" class="col-md-4 col-form-label text-md-right">{{ __('Nombres') }}</label>
 
                                         <div class="col-md-6">
@@ -31,7 +31,7 @@
 
 
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="last_names" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
 
                                         <div class="col-md-6">
@@ -47,7 +47,7 @@
 
 
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                                         <div class="col-md-6">
@@ -61,7 +61,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="identification_card" class="col-md-4 col-form-label text-md-right">{{ __('Número de Identificación') }}</label>
 
                                         <div class="col-md-6">
@@ -76,7 +76,7 @@
                                     </div>
 
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>
 
                                         <div class="col-md-6">
@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group row">
+                                    <div class="form-group row mb-2">
                                         <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
                                         <div class="col-md-6">
@@ -103,6 +103,20 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <img id="user-photo">
+                                        <label for="btn-photo" class="col-md-4 col-form-label text-md-right">{{ __('Selecciona una imagen') }}</label>
+                                        <div class="col-md-6">
+                                            <input id="btn-photo" type="file" class="form-control @error('user-photo') is-invalid @enderror" name="image" required autofocus onchange="previewImage(event)">
+                                            @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    
 
                                     <div class="col-4">
                                         <div class="form-group">
@@ -164,5 +178,11 @@
         <img src="{{ asset('images/uempe.png') }}" alt="Icono 3" style="width: 100px; height: 120px; margin: 0 20px;">
     </div>
 --}}
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+<script src="resources/js/servicio-imagen.js"></script>
+
 </body>
+
+
 @endsection
