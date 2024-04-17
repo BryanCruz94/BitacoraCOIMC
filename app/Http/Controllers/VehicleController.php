@@ -17,9 +17,9 @@ class VehicleController extends Controller
         $roleUser = $user->roles->first()->name;
 
 
-        $military_units = MilitaryUnit::all();
+        $military_units = MilitaryUnit::all()->where('is_active', true);
 
-        if($roleUser == 'Admin'){
+        if ($roleUser == 'Admin') {
             $vehicles = Vehicle::join('military_units as M', 'vehicles.military_unit_id', '=', 'M.id')
                 ->select(
                     'vehicles.id',
@@ -34,7 +34,7 @@ class VehicleController extends Controller
                 ->orderBy('vehicles.plate')
                 ->get();
             return view('admin.vehicle.index', compact('vehicles', 'military_units', 'roleUser'));
-        }else{
+        } else {
             $vehicles = Vehicle::join('military_units as M', 'vehicles.military_unit_id', '=', 'M.id')
                 ->select(
                     'vehicles.id',
@@ -51,16 +51,25 @@ class VehicleController extends Controller
                 ->get();
             return view('admin.vehicle.index', compact('vehicles', 'military_units', 'roleUser'));
         }
-
     }
 
     public function store(Request $request)
     {
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
+
         $vehicle = new Vehicle();
         $vehicle->description = $request->description;
         $vehicle->plate = $request->plate;
         $vehicle->in_barracks = $request->has('in_barracks');
-        $vehicle->military_unit_id = $request->military_unit_id;
+
+        //solo guarda la unidad cuando el administrador esta logueado
+        if ($roleUser == 'Admin') {
+            $vehicle->military_unit_id = $request->military_unit_id;
+        } else {
+            $vehicle->military_unit_id = $unitUser;
+        }
 
         // Subir la imagen a Cloudinary
         $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
@@ -77,21 +86,30 @@ class VehicleController extends Controller
 
     public function edit($id)
     {
-        $vehicle = Vehicle::find($id);
-        $military_units = MilitaryUnit::all();
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
 
-        return view('admin.vehicle.edit', compact('vehicle', 'military_units'));
+        $vehicle = Vehicle::find($id);
+        $military_units = MilitaryUnit::all()->where('is_active', true);
+
+        return view('admin.vehicle.edit', compact('vehicle', 'military_units', 'roleUser'));
     }
 
     public function update(Request $request)
     {
-        $id=$request->id;
+
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
+
+        $id = $request->id;
         $vehicle = Vehicle::find($id);
         $vehicle->description = $request->description;
         $vehicle->plate = $request->plate;
         $vehicle->in_barracks = $request->has('in_barracks');
 
-        if($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             // Subir la imagen a Cloudinary
             $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
                 'folder' => 'COIMC_PICS', // Reemplaza 'nombre_de_la_carpeta_en_cloudinary' por el nombre de la carpeta que deseas utilizar
@@ -100,7 +118,12 @@ class VehicleController extends Controller
             $vehicle->img_url = $url_img;
         }
 
-        $vehicle->military_unit_id = $request->military_unit_id;
+        if ($roleUser == 'Admin') {
+            $vehicle->military_unit_id = $request->military_unit_id;
+        } else {
+            $vehicle->military_unit_id = $unitUser;
+        }
+
         $vehicle->save();
         return redirect()->route('vehicles.index');
     }
@@ -118,6 +141,4 @@ class VehicleController extends Controller
         $vehicle = Vehicle::find($id);
         return view('admin.vehicle.delete', compact('vehicle'));
     }
-
-
 }

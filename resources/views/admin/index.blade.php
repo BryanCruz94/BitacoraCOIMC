@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
-                <a href="#" class="btn  btn-lg d-flex flex-column align-items-center"
+                <a href="{{route('drivers.index')}}" class="btn  btn-lg d-flex flex-column align-items-center"
                 style="padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease; background-color: #F5F3F3 ;"
                 onmouseover="this.style.backgroundColor='#7CF669'; this.style.color='#fff';"
                 onmouseout="this.style.backgroundColor='#F5F3F3'; this.style.color='';">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
-                <a href="#" class="btn  btn-lg d-flex flex-column align-items-center"
+                <a href="{{route('users.index')}}" class="btn  btn-lg d-flex flex-column align-items-center"
                 style="padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease; background-color: #F5F3F3 ;"
                 onmouseover="this.style.backgroundColor='#7CF669'; this.style.color='#fff';"
                 onmouseout="this.style.backgroundColor='#F5F3F3'; this.style.color='';">
@@ -44,7 +44,7 @@
                 </a>
             </div>
             <div class="col-lg-6 col-sm-12 col-md-7 mb-5">
-                <a href="#" class="btn  btn-lg d-flex flex-column align-items-center"
+                <a href="{{route('military_units.index')}}" class="btn  btn-lg d-flex flex-column align-items-center"
                 style="padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease; background-color: #F5F3F3 ;"
                 onmouseover="this.style.backgroundColor='#7CF669'; this.style.color='#fff';"
                 onmouseout="this.style.backgroundColor='#F5F3F3'; this.style.color='';">

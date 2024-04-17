@@ -7,6 +7,8 @@ use App\Http\Controllers\PendingTaskController;
 use App\Http\Controllers\CivillianLogController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\MilitaryUnitController;
+use App\Http\Controllers\PassesController;
 
 
 Route::get('/', function () {
@@ -69,6 +71,21 @@ Route::post('/admin/users/update', [UserController::class,'update'])->middleware
 
 /****************** INICIO RUTAS PARA ADMINISTRACIÓN DE UNIDADES MILITARES ****************/
 Route::get('/admin/military_units', [MilitaryUnitController::class, 'index'])->middleware('auth')->name('military_units.index');
+Route::post('/admin/military_units/newMilitaryUnit', [MilitaryUnitController::class,'store'])->middleware('auth')->name("military_units.store");
+Route::post('/admin/military_units/edit/{id}', [MilitaryUnitController::class, 'edit'])->middleware('auth')-> name ('military_units.edit');
+Route::post('/admin/military_units/update', [MilitaryUnitController::class, 'update'])->middleware('auth')->name('military_units.update');
+/****************** FIN RUTAS PARA ADMINISTRACIÓN DE UNIDADES MILITARES ****************/
+
+
+/****************** INICIO RUTAS PARA ADMINISTRACIÓN DE SALVOCONDUCTOS ****************/
+Route::get('/passes', [PassesController::class, 'index'])->middleware('auth')->name('passes.index');
+Route::get('/passesAuth', [PassesController::class, 'indexAuth'])->middleware('auth')->name('passes.indexAuth');
+Route::post('/passes/newPass', [PassesController::class,'store'])->middleware('auth')->name("passes.store");
+Route::post('/passes/authorize/{id}', [PassesController::class, 'updateAuth'])->middleware('auth')->name('passes.authorize');
+Route::post('/passes/destroy/{id}', [PassesController::class, 'destroy'])->middleware('auth')->name('passes.destroy');
+Route::post('/passes/destroy2/{id}', [PassesController::class, 'destroy2'])->middleware('auth')->name('passes.destroy2');
+
+/****************** FIN RUTAS PARA ADMINISTRACIÓN DE SALVOCONDUCTOS ****************/
 
 
 Auth::routes();

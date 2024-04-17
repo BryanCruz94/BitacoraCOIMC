@@ -10,12 +10,12 @@
 
                 <div class="card">
                     <div class="card-header text-center">{!! __('<strong>Registrar</strong>') !!}</div>
-                    
+
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
-            
+
 
                                     <div class="form-group row mb-2">
                                         <label for="names" class="col-md-4 col-form-label text-md-right">{{ __('Nombres') }}</label>
@@ -32,12 +32,8 @@
                                     </div>
 
 
-                                    
 
-<<<<<<< HEAD
-=======
 
->>>>>>> a6bf8664c2c71297dbff89f7012c8e1391985b85
                                     <div class="form-group row mb-2">
                                         <label for="last_names" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
 
@@ -52,13 +48,9 @@
                                         </div>
                                     </div>
 
-                                    
-                                    
 
-<<<<<<< HEAD
-=======
 
->>>>>>> a6bf8664c2c71297dbff89f7012c8e1391985b85
+
                                     <div class="form-group row mb-2">
                                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
@@ -72,7 +64,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                  
+
 
                                     <div class="form-group row mb-2">
                                         <label for="identification_card" class="col-md-4 col-form-label text-md-right">{{ __('Número de Identificación') }}</label>
@@ -87,8 +79,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    
-                                    
+
+
 
 
                                     <div class="form-group row mb-2">
@@ -104,12 +96,6 @@
                                             @enderror
                                         </div>
                                     </div>
-<<<<<<< HEAD
-                                    
-                                   
-=======
-
->>>>>>> a6bf8664c2c71297dbff89f7012c8e1391985b85
                                     <div class="form-group row mb-2">
                                         <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Teléfono') }}</label>
 
@@ -123,8 +109,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    
-                                    
+
+
 
                                     <div class="form-group row">
                                         <img id="user-photo">
@@ -138,7 +124,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    
+
 
                                     <div class="col-4">
                                         <div class="form-group mb-2">
@@ -158,12 +144,12 @@
                                                     <option value=12>CAPT</option>
                                                     <option value=13>MAYO</option>
                                                     <option value=14>TCRN</option>
-                                                    <option value=15>GRAB</option>                                                   
+                                                    <option value=15>GRAB</option>
                                                 </select>
                                         </div>
                                     </div>
-                                    
-                                  
+
+
 
                                     <div class="col-4">
                                         <div class="form-group mb-2">
@@ -172,11 +158,11 @@
                                                     <option value=1 select>COIMC</option>
                                                     <option value=2 >GMREC</option>
                                                     <option value=3>GEO</option>
-                                                    <option value=4>UEMPE</option>                                                                                   
+                                                    <option value=4>UEMPE</option>
                                                 </select>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row mb-0">
                                         <div class="col-md-6 offset-md-4 d-flex justify-content-center">
                                             <button type="submit" class="btn btn-primary">

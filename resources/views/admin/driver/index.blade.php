@@ -121,33 +121,37 @@
                         @csrf
 
                         <div class="form-group col-6">
-                            <label for="names" >Nombres:</label>
+                            <label for="names">Nombres:</label>
                             <input type="text" name="names" class="form-control" required>
                         </div>
 
                         <div class="form-group col-6">
-                            <label for="last_names" >Apellidos:</label>
+                            <label for="last_names">Apellidos:</label>
                             <input type="text" name="last_names" class="form-control" required>
                         </div>
 
                         <div class="form-group col-6">
-                            <label for="identification_card" >Identificación:</label>
-                            <input type="text" name="identification_card" class="form-control" required>
+                            <label for="identification_card">Identificación:</label>
+                            <input type="text" name="identification_card" class="form-control"
+                            minlength="10" maxlength="10" required>
                         </div>
 
                         <div class="form-group col-6">
-                            <label for="phone" >Teléfono:</label>
-                            <input type="text" name="phone" class="form-control" required>
+                            <label for="phone">Teléfono:</label>
+                            <input type="text" name="phone" class="form-control"
+                            minlength="10" maxlength="10" required>
                         </div>
 
-                        <div class="form-group col-3">
-                            <label for="rank_id">Unidad:</label>
-                            <select name="military_unit_id" class="form-control" required>
-                                @foreach ($military_units as $unit)
-                                    <option value="{{ $unit->id }}">{{ $unit->abbreviation }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        @if ($roleUser == 'Admin')
+                            <div class="form-group col-3">
+                                <label for="rank_id">Unidad:</label>
+                                <select name="military_unit_id" class="form-control" required>
+                                    @foreach ($military_units as $unit)
+                                        <option value="{{ $unit->id }}">{{ $unit->abbreviation }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        @endif
 
                         <div class="form-group col-3">
                             <label for="rank_id">Rango:</label>
@@ -159,7 +163,7 @@
                         </div>
 
                         <div class="form-group col-3">
-                            <label for="blood_type" >Tipo de Sangre:</label>
+                            <label for="blood_type">Tipo de Sangre:</label>
                             <select name="blood_type" class="form-control" required>
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
@@ -172,7 +176,7 @@
                             </select>
                         </div>
                         <div class="form-group col-3">
-                            <label for="license_type" >Tipo de Licencia:</label>
+                            <label for="license_type">Tipo de Licencia:</label>
                             <select name="license_type" class="form-control" required>
                                 <option value="A">Tipo A - Motocicletas</option>
                                 <option value="B">Tipo B - Automóviles y camionetas</option>
@@ -214,40 +218,6 @@
             "searching": true
         });
 
-        $(document).ready(function() {
-            // Función para validar el formato de placa
-            function validarPlate(plate) {
-                var regex = /^(?:[A-Z]{3}-\d{4}|[A-Z]{2}\d{3}[A-Z])$/;
-                return regex.test(plate);
-            }
 
-            // Evento input en el campo de placa
-            $('#plate').on('input', function() {
-                var plateValue = $(this).val();
-
-                if (validarPlate(plateValue)) {
-                    // El valor es válido, aplicar estilo de éxito
-                    $(this).removeClass('is-invalid').addClass('is-valid');
-                } else {
-                    // El valor no es válido, aplicar estilo de error
-                    $(this).removeClass('is-valid').addClass('is-invalid');
-                }
-            });
-
-            // Evento submit en el formulario
-            $('#forNewVehicle').submit(function(e) {
-                e.preventDefault(); // Evitar el envío del formulario por defecto
-
-                var plateValue = $('#plate').val();
-
-                if (validarPlate(plateValue)) {
-                    // La placa es válida, permitir el envío del formulario
-                    this.submit();
-                } else {
-                    // Mostrar mensaje de error y evitar el envío del formulario
-                    alert('La placa no cumple con el formato requerido (AAA-0000 o AA000A).');
-                }
-            });
-        });
     </script>
 @stop

@@ -17,32 +17,56 @@ class DriverController extends Controller
         $unitUser = $user->military_unit_id;
         $roleUser = $user->roles->first()->name;
 
-        $military_units = MilitaryUnit::all();
+        $military_units = MilitaryUnit::all()->where('is_active', true);
         $ranks = Rank::all();
 
-        $drivers = Driver::join('military_units as U', 'drivers.military_unit_id', '=', 'U.id')
-            ->join('ranks as R', 'drivers.rank_id', '=', 'R.code')
-            ->select(
-                'drivers.id',
-                'U.abbreviation as unit',
-                'R.name as ranks',
-                DB::raw("CONCAT(drivers.last_names, ' ', drivers.names) as driver"),
-                'drivers.identification_card',
-                'drivers.phone',
-                'drivers.blood_type',
-                'drivers.license_type'
-            )
-            ->where('drivers.military_unit_id', $unitUser)
-            ->where('drivers.is_active', true)
-            ->orderBy('U.abbreviation')
-            ->orderBy('R.name')
-            ->orderBy(DB::raw("CONCAT(drivers.last_names, ' ', drivers.names)"))
-            ->get();
-        return view('admin.driver.index', compact('drivers', 'military_units', 'ranks'));
+        if ($roleUser == 'Admin') {
+            $drivers = Driver::join('military_units as U', 'drivers.military_unit_id', '=', 'U.id')
+                ->join('ranks as R', 'drivers.rank_id', '=', 'R.code')
+                ->select(
+                    'drivers.id',
+                    'U.abbreviation as unit',
+                    'R.name as ranks',
+                    DB::raw("CONCAT(drivers.last_names, ' ', drivers.names) as driver"),
+                    'drivers.identification_card',
+                    'drivers.phone',
+                    'drivers.blood_type',
+                    'drivers.license_type'
+                )
+                ->where('drivers.is_active', true)
+                ->orderBy('U.abbreviation')
+                ->orderBy('R.name')
+                ->orderBy(DB::raw("CONCAT(drivers.last_names, ' ', drivers.names)"))
+                ->get();
+        } else {
+            $drivers = Driver::join('military_units as U', 'drivers.military_unit_id', '=', 'U.id')
+                ->join('ranks as R', 'drivers.rank_id', '=', 'R.code')
+                ->select(
+                    'drivers.id',
+                    'U.abbreviation as unit',
+                    'R.name as ranks',
+                    DB::raw("CONCAT(drivers.last_names, ' ', drivers.names) as driver"),
+                    'drivers.identification_card',
+                    'drivers.phone',
+                    'drivers.blood_type',
+                    'drivers.license_type'
+                )
+                ->where('drivers.military_unit_id', $unitUser)
+                ->where('drivers.is_active', true)
+                ->orderBy('U.abbreviation')
+                ->orderBy('R.name')
+                ->orderBy(DB::raw("CONCAT(drivers.last_names, ' ', drivers.names)"))
+                ->get();
+        }
+        return view('admin.driver.index', compact('drivers', 'military_units', 'ranks', 'roleUser'));
     }
 
     public function store(Request $request)
     {
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
+
         $driver = new Driver();
         $driver->names = $request->names;
         $driver->last_names = $request->last_names;
@@ -51,7 +75,13 @@ class DriverController extends Controller
         $driver->blood_type = $request->blood_type;
         $driver->license_type = $request->license_type;
         $driver->rank_id = $request->rank_id;
-        $driver->military_unit_id = $request->military_unit_id;
+
+        if ($roleUser == 'Admin') {
+            $driver->military_unit_id = $request->military_unit_id;
+        } else {
+            $driver->military_unit_id = $unitUser;
+        }
+
         $driver->is_active = true;
         $driver->save();
 
@@ -60,14 +90,22 @@ class DriverController extends Controller
 
     public function edit($id)
     {
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
+
         $driver = Driver::find($id);
-        $military_units = MilitaryUnit::all();
+        $military_units = MilitaryUnit::all()->where('is_active', true);
         $ranks = Rank::all();
-        return view('admin.driver.edit', compact('driver', 'military_units', 'ranks'));
+        return view('admin.driver.edit', compact('driver', 'military_units', 'ranks', 'roleUser'));
     }
 
     public function update(Request $request)
     {
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
+
         $driver = Driver::find($request->id);
         $driver->names = $request->names;
         $driver->last_names = $request->last_names;
@@ -76,7 +114,13 @@ class DriverController extends Controller
         $driver->blood_type = $request->blood_type;
         $driver->license_type = $request->license_type;
         $driver->rank_id = $request->rank_id;
-        $driver->military_unit_id = $request->military_unit_id;
+
+        if ($roleUser == 'Admin') {
+            $driver->military_unit_id = $request->military_unit_id;
+        } else {
+            $driver->military_unit_id = $unitUser;
+        }
+       
         $driver->is_active = true;
         $driver->updated_at = now();
         $driver->save();

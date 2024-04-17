@@ -139,18 +139,21 @@
                                     <input type="checkbox" name="in_barracks" id="in_barracks" class="form-control" checked>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="military_unit_id">Unidad Militar: </label>
-                                    <select name="military_unit_id" id="military_unit_id" class="form-control">
-                                        @foreach ($military_units as $military_unit)
-                                            <option value="{{ $military_unit->id }}">{{ $military_unit->abbreviation }}
-                                            </option>
-                                        @endforeach
 
-                                    </select>
+                            @if($roleUser == 'Admin')
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="military_unit_id">Unidad Militar: </label>
+                                        <select name="military_unit_id" id="military_unit_id" class="form-control">
+                                            @foreach ($military_units as $military_unit)
+                                                <option value="{{ $military_unit->id }}">{{ $military_unit->abbreviation }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <div class="col-4">
                                 <div class="form-group">

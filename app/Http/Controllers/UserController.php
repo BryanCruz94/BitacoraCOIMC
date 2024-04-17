@@ -15,6 +15,11 @@ class UserController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
+        $unitUser = $user->military_unit_id;
+        $roleUser = $user->roles->first()->name;
+
+        
         $users = User::join('military_units as MU', 'users.military_unit_id', '=', 'MU.id')
             ->join('ranks as R', 'users.rank_id', '=', 'R.code')
             ->join('model_has_roles as MR', 'MR.model_id', '=', 'users.id')
@@ -41,7 +46,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $ranks = Rank::all();
-        $military_units = MilitaryUnit::all();
+        $military_units = MilitaryUnit::all()->where('is_active', true);
         $roles = DB::table('roles')->get();
         $role_id = DB::table('model_has_roles')->where('model_id', $id)->first();
         return view('admin.user.edit', compact('user', 'ranks', 'military_units', 'roles', 'role_id'));
@@ -67,7 +72,6 @@ class UserController extends Controller
                 $roles = DB::table('roles')->get();
                 $role_id = DB::table('model_has_roles')->where('model_id', $request->id)->first();
                 return view('admin.user.edit', compact('user', 'ranks', 'military_units', 'roles', 'role_id'))->withErrors(['password' => 'Las contraseñas no coinciden']);
-
             }
         }
 
