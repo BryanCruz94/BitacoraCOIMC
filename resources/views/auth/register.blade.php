@@ -53,6 +53,7 @@
 
                                     <div class="form-group row mb-2">
                                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+                                        {{-- mostrar mensaje informativo con reglas --}}
 
                                         <div class="col-md-6">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -62,6 +63,12 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
+                                        </div>
+                                        <div class="col-4"></div>
+                                        <div class="col-md-6">
+                                            <div class="alert alert-info" role="alert">
+                                                La contraseña debe tener al menos 5 caracteres, al menos una letra y al menos un número.
+                                            </div>
                                         </div>
                                     </div>
 
@@ -110,28 +117,12 @@
                                         </div>
                                     </div>
 
-
-
-                                    <div class="form-group row">
-                                        <img id="user-photo">
-                                        <label for="btn-photo" class="col-md-4 col-form-label text-md-right">{{ __('Selecciona una imagen') }}</label>
-                                        <div class="col-md-6">
-                                            <input id="btn-photo" type="file" class="form-control @error('user-photo') is-invalid @enderror" name="image" required autofocus onchange="previewImage(event)">
-                                            @error('image')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-
                                     <div class="col-4">
                                         <div class="form-group mb-2">
                                                 <label for="rank_id">Seleccione su grado:</label>
                                                 <select name="rank_id" id="rank_id" required>
                                                     <option value=1 select>S.P</option>
-                                                    <option value=2 >SLDO</option>
+                                                    <option value=2>SLDO</option>
                                                     <option value=3>CBOS</option>
                                                     <option value=4>CBOP</option>
                                                     <option value=5>SGOS</option>

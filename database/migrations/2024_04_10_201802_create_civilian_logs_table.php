@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('activity');
             $table->foreignId('userIn_id');
             $table->foreignId('userOut_id')->nullable();
-            $table->string('transport')->nullable();
+            $table->string('transport');
             $table->foreign('userIn_id')->references('id')->on('users');
             $table->foreign('userOut_id')->references('id')->on('users');
             $table->timestamps();

@@ -8,12 +8,14 @@
             <h1>BITÁCORA NOVEDADES F.M.E "ECUADOR"</h1>
         </div>
     </div>
-    <div class="row h-100 mt-1">
-        <div class="col-10 offset-1 d-flex align-items-center justify-content-center">
-            <button class="btn btn-lg btn-success" mr-5" data-toggle="modal" data-target="#modalRegistro">REGISTRAR
-                NOVEDAD</button>
+    @can('guard.index')
+        <div class="row h-100 mt-1">
+            <div class="col-10 offset-1 d-flex align-items-center justify-content-center">
+                <button class="btn btn-lg btn-success" mr-5" data-toggle="modal" data-target="#modalRegistro">REGISTRAR
+                    NOVEDAD</button>
+            </div>
         </div>
-    </div>
+    @endcan
 
 @stop
 

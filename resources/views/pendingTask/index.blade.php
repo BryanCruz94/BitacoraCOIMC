@@ -54,15 +54,13 @@
                                     {{ $item->guardCreate }}
                                 </td>
                                 <td class="text-center">
-
-                                    <form action="{{route ('pendings.editDone', $item->id)}}" method="POST">
-                                        @csrf
-                                        <input type="submit" class="btn btn-danger" data-toggle="modal"
-                                         data-target="#modalPenddingDone" value= "REALIZADA"></input>
-
-                                    </form>
-
-
+                                    @can('guard.index')
+                                        <form action="{{ route('pendings.editDone', $item->id) }}" method="POST">
+                                            @csrf
+                                            <input type="submit" class="btn btn-danger" data-toggle="modal"
+                                                data-target="#modalPenddingDone" value= "REALIZADA"></input>
+                                        </form>
+                                    @endcan
                                 </td>
 
                             </tr>
@@ -89,7 +87,8 @@
                         <tr>
                             <th class="align-middle text-wrap">ORD</th>
                             <th class="align-middle text-wrap" style="min-width: 100px; max-width:300px">DESCRIPCIÓN</th>
-                            <th class="align-middle text-wrap" style="min-width: 100px; max-width:300px">HORA ASIGNACIÓN</th>
+                            <th class="align-middle text-wrap" style="min-width: 100px; max-width:300px">HORA ASIGNACIÓN
+                            </th>
                             <th class="align-middle text-wrap" style="min-width: 100px; max-width:300px">HORA REALIZADO</th>
                             <th class="align-middle text-wrap" style="min-width: 100px; max-width:300px">REMITENTE</th>
                             <th class="align-middle text-wrap" style="min-width: 100px; max-width:300px">REALIZADO POR</th>
@@ -101,7 +100,7 @@
                         <?php $ord = 0; ?>
                         @foreach ($penddingsDone as $item2)
                             <tr>
-                                <td class="align-middle text-wrap" >
+                                <td class="align-middle text-wrap">
                                     {{ ++$ord }}
                                 </td>
                                 <td>
@@ -178,9 +177,6 @@
 
 @section('js')
     <script>
-
-
-
         donePendingsTable
         $(document).ready(function() {
             $('#donePendingsTable').DataTable({

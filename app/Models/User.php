@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -66,10 +65,21 @@ class User extends Authenticatable
         // Obtener el usuario autenticado
         $user = Auth::user();
 
+        //obtener rango de usuario
+        $rank = Rank::find($user->rank_id);
+
+        // Obtener el rol del usuario autenticado
+        $role = Role::findByName($user->getRoleNames()->first());
+
+
         // Verificar si el usuario está autenticado y tiene nombre y apellidos
         if ($user && $user->names && $user->last_names) {
+            if($role->name == 'Admin'){
+                return $rank->name. ' ' . $user->last_names . ' ' . $user->names . ' - ' . $role->name; // Devuelve nombre completo
+            }else{
+                return $rank->name. ' ' . $user->last_names . ' ' . $user->names; // Devuelve nombre completo
+            }
 
-            return $user->names . ' ' . $user->last_names; // Devuelve nombre completo
         }
 
         return 'Usuario'; // En caso de no haber nombre o apellidos definidos

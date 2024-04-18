@@ -138,7 +138,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => true,
-    'usermenu_header_class' => 'bg-info',
+    'usermenu_header_class' => 'bg-dark bg-transparent',
     'usermenu_image' => true,
     'usermenu_desc' => true,
     'usermenu_profile_url' => false, //para perfiles junto a salir
@@ -157,10 +157,10 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
-    'layout_fixed_footer' => null,
-    'layout_dark_mode' => null,
+    'layout_fixed_footer' => false,
+    'layout_dark_mode' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -300,16 +300,11 @@ return [
 
 
         ['header' => 'MENÚ DE OPCIONES'],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
+
         [
             'text' => 'NOVEDADES',
             'url' => 'binacle',
             'icon' => 'far fa-fw fa-file',
-
             'label_color' => 'success',
         ],
 
@@ -322,12 +317,14 @@ return [
             'text' => 'REGISTRO PERSONAL CIVIL',
             'url' => 'civilians',
             'icon' => 'fas fa-walking',
+            'can' => 'guard.index',
         ],
 
         [
             'text' => 'CONSIGNAS',
             'url' => 'pendings',
             'icon' => 'fas fa-fw fa-book',
+            'can' => 'pending.index',
         ],
         [
             'text' => 'REPORTES',
@@ -338,19 +335,22 @@ return [
             'text' => 'GENERAR SALVOCONDUCTO',
             'url' => 'passes',
             'icon' => 'fas fa-fw fa-pencil-alt',
+            'can' => 'pass.view',
         ],
         [
             'text' => 'AUTORIZACIÓN DE SALIDA ',
             'icon' => 'fas fa-fw fa-edit',
             'url' => 'passesAuth',
+            'can' => 'pass.authorized',
         ],
 
-        ['header' => 'PERMISOS'],
+
         [
             'text' => 'ADMINISTRADOR',
             'icon' => 'fas fa-fw fa-user-tie',
-            //'icon_color' => 'success',
+            'icon_color' => 'danger',
             'url' => 'admin',
+            'can' => 'admin.index',
         ],
 
 

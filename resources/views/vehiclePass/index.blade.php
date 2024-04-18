@@ -8,12 +8,15 @@
             <h1>SALVOCONDUCTOS</h1>
         </div>
     </div>
-    <div class="row h-100 mt-1">
-        <div class="col-10 offset-1 d-flex align-items-center justify-content-center">
-            <button class="btn btn-lg btn-success" mr-5" data-toggle="modal" data-target="#modalSalvoconducto">REALIZAR
-                SALVOCONDUCTO</button>
+    @can('pass.create')
+        <div class="row h-100 mt-1">
+            <div class="col-10 offset-1 d-flex align-items-center justify-content-center">
+                <button class="btn btn-lg btn-success" mr-5" data-toggle="modal" data-target="#modalSalvoconducto">REALIZAR
+                    SALVOCONDUCTO</button>
+            </div>
         </div>
-    </div>
+    @endcan
+
 
 @stop
 
@@ -85,7 +88,7 @@
                                             @csrf
                                             <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>
                                         </form>
-                                    @elseif($roleUser == 'Commander')
+                                    @elseif($roleUser == 'Commander' && $item->ejecuted == 0)
                                         <form action="{{ route('passes.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>

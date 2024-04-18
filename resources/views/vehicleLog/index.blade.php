@@ -8,16 +8,19 @@
             <h1>BITÁCORA DE MOVIMIENTO VEHICULAR F.M "ECUADOR"</h1>
         </div>
     </div>
-    <div class="row h-100 mt-1 justify-content-center align-items-center pr-5 mr-2">
-        <div class="col-4 offset-1 d-flex align-items-center justify-content-center">
-            <button class="btn btn-lg btn-danger" mr-5" data-toggle="modal" data-target="#modalVehOut">REGISTRAR
-                SALIDA</button>
+    @can('guard.index')
+        <div class="row h-100 mt-1 justify-content-center align-items-center pr-5 mr-2">
+            <div class="col-4 offset-1 d-flex align-items-center justify-content-center">
+                <button class="btn btn-lg btn-danger" mr-5" data-toggle="modal" data-target="#modalVehOut">REGISTRAR
+                    SALIDA</button>
+            </div>
+            <div class="col-4 offset-1 d-flex align-items-center justify-content-center">
+                <button class="btn btn-lg btn-success" mr-5" data-toggle="modal" data-target="#modalVehIn">REGISTRAR
+                    INGRESO</button>
+            </div>
         </div>
-        <div class="col-4 offset-1 d-flex align-items-center justify-content-center">
-            <button class="btn btn-lg btn-success" mr-5" data-toggle="modal" data-target="#modalVehIn">REGISTRAR
-                INGRESO</button>
-        </div>
-    </div>
+    @endcan
+
 
 @stop
 
@@ -257,7 +260,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('vehicleLog.update')}}" method="POST">
+                <form action="{{ route('vehicleLog.update') }}" method="POST">
                     @csrf
                     <div class="modal-body">
 
@@ -295,8 +298,7 @@
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="mission">Misión: </label>
-                                    <input type="text" name="mission" id="mission" class="form-control"
-                                        readonly>
+                                    <input type="text" name="mission" id="mission" class="form-control" readonly>
                                 </div>
                             </div>
 
@@ -309,7 +311,8 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="departure_km">KM Salida: </label>
-                                    <input type="number" name="departure_km" id="departure_km" class="form-control" readonly>
+                                    <input type="number" name="departure_km" id="departure_km" class="form-control"
+                                        readonly>
                                 </div>
                             </div>
 
@@ -385,7 +388,9 @@
                         $('#mission').val('');
                         $('#id_vehicle_log').val('');
                         $('#departure_km').val('');
-                        $('#errorContainer').html('<p>Error: No se encontró el vehículo con la placa especificada.</p>');
+                        $('#errorContainer').html(
+                            '<p>Error: No se encontró el vehículo con la placa especificada.</p>'
+                            );
                     }
                 });
             });
