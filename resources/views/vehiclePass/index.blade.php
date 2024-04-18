@@ -45,48 +45,50 @@
                         <?php $ord = 0; ?>
                         @foreach ($passes as $item)
                             <tr>
-                                <td class="text-center align-middle">
+                                <td class="text-sm text-center align-middle">
                                     {{ ++$ord }}
                                 </td>
-                                <td class=" text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->vehicle }}
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->driver }}
                                 </td>
-                                <td class="align-middle">
+                                <td class="text-sm text-center text-wrap align-middle">
                                     {{ $item->destination }}
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->mission }}
                                 </td>
-                                <td class="text-wrap" style="min-width: 80px">
+                                <td class="text-sm text-wrap align-middle" style="min-width: 80px">
                                     {{ $item->created_at }}
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->userLog }}
                                 </td>
                                 <td class="align-middle">
-                                    @if ($item->authorized_commander == 1)
+                                    @if ($item->authorized_commander == 1 && $item->ejecuted == 0)
                                         <span class="badge badge-success">Autorizado</span>
-                                    @else
+                                    @elseif ($item->authorized_commander == 0)
                                         <span class="badge badge-warning">Pendiente</span>
+                                    @elseif ($item->authorized_commander == 1 && $item->ejecuted == 1)
+                                        <span class="badge badge-primary">Ejecutado</span>
                                     @endif
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->userAuth }}
                                 </td>
 
-                                <td class="text-center align-middle">
+                                <td class="text-xs text-center align-middle">
                                     @if ($item->authorized_commander == 0)
                                         <form action="{{ route('passes.destroy', $item->id) }}" method="POST">
                                             @csrf
-                                            <input type="submit" class="btn btn-danger" value= "ELIMINAR"></input>
+                                            <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>
                                         </form>
                                     @elseif($roleUser == 'Commander')
                                         <form action="{{ route('passes.destroy', $item->id) }}" method="POST">
                                             @csrf
-                                            <input type="submit" class="btn btn-danger" value= "ELIMINAR"></input>
+                                            <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>
                                         </form>
                                     @else
                                         -

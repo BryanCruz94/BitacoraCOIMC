@@ -49,6 +49,7 @@ class PassesController extends Controller
                 'passes.mission',
                 'passes.authorized_commander',
                 'passes.created_at',
+                'passes.ejecuted',
                 DB::raw("CONCAT(V.plate, ' ', V.description) as vehicle"),
                 DB::raw("CONCAT(DR.name, ' ', D.last_names, ' ', D.names) as driver"),
                 DB::raw("CONCAT(RL.name, ' ', UL.last_names, ' ', UL.names) as userLog"),
@@ -62,7 +63,6 @@ class PassesController extends Controller
 
     public function store(Request $request)
     {
-
         $pass = new Pass();
         $pass->user_id = auth()->user()->id;
         $pass->vehicle_id = $request->vehicle_id;
@@ -71,6 +71,7 @@ class PassesController extends Controller
         $pass->mission = $request->mission;
         $pass->authorized_commander = 0;
         $pass->authorized_user_id = null;
+        $pass->ejecuted = 0;
         $pass->created_at = Carbon::now()->setTimezone('America/Guayaquil');
 
         $pass->save();

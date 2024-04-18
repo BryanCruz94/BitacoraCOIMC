@@ -16,6 +16,7 @@ class Pass extends Model
         "vehicle_id",
         "driver_id",
         "authorized_2commander",
+        'ejecuted',
     ];
 
 

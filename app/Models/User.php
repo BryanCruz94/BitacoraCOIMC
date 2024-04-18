@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
-use Spatie\Permission\Models\Role;//roles de usuario
+use Spatie\Permission\Models\Role; //roles de usuario
 use Illuminate\Support\Facades\Auth; // importar la clase Auth NUEVO
 
 class User extends Authenticatable
@@ -20,20 +20,20 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
-     * 
+     *
      */
     protected $fillable = [
-        
-            'names' ,
-            'last_names' ,
-            'password' ,
-            'identification_card' ,
-            'email' ,
-            'email_verified_at' ,
-            'phone' ,
-            'rank_id' ,
-            'military_unit_id' ,
-            'is_active' 
+
+        'names',
+        'last_names',
+        'password',
+        'identification_card',
+        'email',
+        'email_verified_at',
+        'phone',
+        'rank_id',
+        'military_unit_id',
+        'is_active'
     ];
 
     /**
@@ -42,7 +42,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password','remember_token',
+        'password', 'remember_token',
     ];
 
     /**
@@ -55,29 +55,30 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function adminlte_image(){
+    public function adminlte_image()
+    {
 
-        return 'https://picsum.photos/300/300';
-          
+        return 'vendor/adminlte/dist/img/user_log.png';
     }
-    public function adminlte_desc(){
+    public function adminlte_desc()
+    {
 
         // Obtener el usuario autenticado
-    $user = Auth::user();
+        $user = Auth::user();
 
-    // Verificar si el usuario está autenticado y tiene nombre y apellidos
-    if ($user && $user->names && $user->last_names) {
-        
-        return $user->names . ' ' . $user->last_names; // Devuelve nombre completo
+        // Verificar si el usuario está autenticado y tiene nombre y apellidos
+        if ($user && $user->names && $user->last_names) {
+
+            return $user->names . ' ' . $user->last_names; // Devuelve nombre completo
+        }
+
+        return 'Usuario'; // En caso de no haber nombre o apellidos definidos
+
     }
 
-    return 'Usuario'; // En caso de no haber nombre o apellidos definidos
-
-    }
-    
-    public function adminlte_profile_url(){
+    public function adminlte_profile_url()
+    {
 
         return 'Perfil/username';
-
     }
 }

@@ -63,7 +63,7 @@ return [
     |
     */
 
-    //'logo' => '<b>FUERTE MILITAR </b> ECUADOR',
+
     'logo' => '<font size="3"><b>FUERTE MILITAR </b></font><font size="3">ECUADOR</font>',
     'logo_img' => 'vendor/adminlte/dist/img/escudo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
@@ -315,7 +315,7 @@ return [
 
         [
             'text' => 'MOVIMIENTO VEHICULAR',
-            'url' => 'admin/settings',
+            'url' => 'vehicleLog',
             'icon' => 'fas fa-car',
         ],
         [
@@ -336,17 +336,12 @@ return [
         ],
         [
             'text' => 'GENERAR SALVOCONDUCTO',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-pencil-alt',
             'url' => 'passes',
             'icon' => 'fas fa-fw fa-pencil-alt',
         ],
         [
             'text' => 'AUTORIZACIÓN DE SALIDA ',
             'icon' => 'fas fa-fw fa-edit',
-            //'icon_color' => 'success',
-            'url' => '#',
-            //'icon_color' => 'success',
             'url' => 'passesAuth',
         ],
 

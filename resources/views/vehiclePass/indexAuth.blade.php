@@ -33,38 +33,38 @@
                         <?php $ord = 0; ?>
                         @foreach ($passes as $item)
                             <tr>
-                                <td class="text-center align-middle">
+                                <td class="text-sm text-center align-middle">
                                     {{ ++$ord }}
                                 </td>
-                                <td class=" text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->vehicle }}
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->driver }}
                                 </td>
-                                <td class="align-middle">
+                                <td class="text-sm align-middle">
                                     {{ $item->destination }}
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->mission }}
                                 </td>
-                                <td class="text-wrap" style="min-width: 80px">
+                                <td class="text-sm text-wrap align-middle" style="min-width: 80px">
                                     {{ $item->created_at }}
                                 </td>
-                                <td class="text-wrap">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item->userLog }}
                                 </td>
 
-                                <td class="text-center align-middle">
+                                <td class="text-xs text-center align-middle">
                                     <form action="{{ route('passes.destroy2', $item->id) }}" method="POST">
                                         @csrf
 
-                                        <input type="submit" class="btn btn-danger" onclick="confirmDelete({{ $item->id }})" value= "ELIMINAR"></input>
+                                        <input type="submit" class="btn btn-danger text-xs" onclick="confirmDelete({{ $item->id }})" value= "ELIMINAR"></input>
                                     </form>
 
                                     <form action="{{ route('passes.authorize', $item->id) }}" method="POST" class="mt-1">
                                         @csrf
-                                        <input type="submit" class="btn btn-success" value= "AUTORIZAR"></input>
+                                        <input type="submit" class="btn btn-success text-xs" value= "AUTORIZAR"></input>
                                     </form>
                                 </td>
 

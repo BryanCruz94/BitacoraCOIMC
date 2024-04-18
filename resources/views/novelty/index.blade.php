@@ -46,10 +46,10 @@
                             <?php $ord = 0; ?>
                             @foreach ($novelties as $item)
                                 <tr>
-                                    <td class="align-middle text-center">
+                                    <td class="align-middle text-center text-sm">
                                         {{ ++$ord }}
                                     </td>
-                                    <td class="text-wrap" style="min-width: 100px; max-width: 300px;">
+                                    <td class="text-wrap text-sm" style="min-width: 100px; max-width: 300px;">
                                         {{ $item->novelty }}
                                     </td>
                                     <td class="align-middle" style="min-width: 10px; max-width: 30px;">
@@ -59,10 +59,10 @@
                                             </button>
                                         </div>
                                     </td>
-                                    <td class="align-middle text-wrap text-center">
+                                    <td class="align-middle text-wrap text-center text-sm">
                                         {{ $item->hour }}
                                     </td>
-                                    <td class="align-middle text-wrap text-center"
+                                    <td class="align-middle text-wrap text-center text-sm"
                                         style="min-width: 50px; max-width: 300px;">
                                         {{ $item->Guard }}
                                     </td>

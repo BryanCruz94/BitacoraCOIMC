@@ -27,12 +27,10 @@ class CivillianLogController extends Controller
             ->whereNull('civilian_logs.hour_out')
             ->get();
 
-
-
         $civiliansOut = CivilianLog::join('users as UI', 'UI.id', '=', 'civilian_logs.userIn_id')
             ->join('ranks as RI', 'RI.code', '=', 'UI.rank_id')
-            ->join('users as UO', 'UO.id', '=', 'civilian_logs.userOut_id')
-            ->join('ranks as RO', 'RO.code', '=', 'UO.rank_id')
+            ->leftJoin('users as UO', 'UO.id', '=', 'civilian_logs.userOut_id')
+            ->leftJoin('ranks as RO', 'RO.code', '=', 'UO.rank_id')
             ->select(
                 DB::raw("CONCAT(civilian_logs.last_names, ' ', civilian_logs.names) as civilian"),
                 'civilian_logs.identification_card',

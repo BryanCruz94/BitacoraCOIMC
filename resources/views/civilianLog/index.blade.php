@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="row justify-content-center align-item-center">
         <div class="col text-center">
-            <h1>REGISTRO DE MOVIMIENTO DE PERSONAL CIVIL DEL F.M.E "ECUADOR"</h1>
+            <h3>REGISTRO DE MOVIMIENTO DE PERSONAL CIVIL DEL F.M.E "ECUADOR"</h3>
         </div>
     </div>
     <div class="row h-100 mt-1">
@@ -28,14 +28,14 @@
                 <table id="pendingsTable" class="table table-hover text-nowrap">
                     <thead>
                         <tr>
-                            <th class="text-center align-middle">ORD</th>
-                            <th class="text-center text-wrap ">APELLIDOS Y NOMBRES</th>
-                            <th class="text-center align-middle">CÉDULA</th>
-                            <th class="text-center align-middle">HORA DE INGRESO</th>
-                            <th class="text-center align-middle">ACTIVIDAD</th>
-                            <th class="text-center align-middle">TRANSPORTE</th>
-                            <th class="text-center text-wrap">GUARDIA DE INGRESO</th>
-                            <th class="text-center align-middle">SALIDA</th>
+                            <th class="text-sm text-center align-middle">ORD</th>
+                            <th class="text-sm text-center text-wrap ">APELLIDOS Y NOMBRES</th>
+                            <th class="text-sm text-center align-middle">CÉDULA</th>
+                            <th class="text-sm text-center align-middle">HORA DE INGRESO</th>
+                            <th class="text-sm text-center align-middle">ACTIVIDAD</th>
+                            <th class="text-sm text-center align-middle">TRANSPORTE</th>
+                            <th class="text-sm text-center text-wrap">GUARDIA DE INGRESO</th>
+                            <th class="text-sm text-center align-middle">SALIDA</th>
 
                         </tr>
                     </thead>
@@ -43,32 +43,32 @@
                         <?php $ord = 0; ?>
                         @foreach ($civilianLogs as $item)
                             <tr class="align-middle">
-                                <td class="text-center align-middle">
+                                <td class="text-sm text-center align-middle">
                                     {{ ++$ord }}
                                 </td>
-                                <td class="align-middle">
+                                <td class="text-sm align-middle">
                                     {{ $item->civilian }}
                                 </td>
-                                <td class="text-center align-middle">
+                                <td class="text-sm text-center align-middle">
                                     {{ $item->identification_card }}
                                 </td>
-                                <td class="text-center align-middle">
+                                <td class="text-sm text-center align-middle">
                                     {{ $item->hour_in }}
                                 </td>
-                                <td class="align-middle">
+                                <td class="text-sm align-middle">
                                     {{ $item->activity }}
                                 </td>
-                                <td class="text-center align-middle">
+                                <td class="text-sm text-center align-middle">
                                     {{ $item->transport }}
                                 </td>
-                                <td class="align-middle">
+                                <td class="text-sm align-middle">
                                     {{ $item->user }}
                                 </td>
                                 <td class="text-center align-middle">
 
                                     <form action="{{route ('civilians.edit', $item->id)}}" method="POST">
                                         @csrf
-                                        <input type="submit" class="btn btn-danger" data-toggle="modal"
+                                        <input type="submit" class="text-xs text-wrap btn btn-danger" data-toggle="modal"
                                          data-target="#modalPenddingDone" value= "Registrar Salida"></input>
 
                                     </form>
@@ -85,11 +85,11 @@
 
         </div>
 
-        {{-- TABLA CONSIGNAS REALIZADAS --}}
+        {{-- TABLA CONSOLIDADO --}}
         <div class="card col-12">
             <div class="card-header text-center" style="padding:0; padding-top:3px">
                 <div>
-                    <h3>CONSOLIDADO MOVIMIENTO DE PERSONAL CIVIL</h3>
+                    <h4>CONSOLIDADO MOVIMIENTO DE PERSONAL CIVIL</h4>
                 </div>
                 <div class="card-tools" style=" ">
                 </div>
@@ -98,15 +98,15 @@
                 <table id="donePendingsTable" class="table table-hover text-nowrap">
                     <thead>
                         <tr>
-                            <th class="align-middle text-wrap">ORD</th>
-                            <th class="text-center text-wrap" style="">APELLLIDOS Y NOMBRES</th>
-                            <th class="text-center align-middle text-wrap" style="">CÉDULA</th>
-                            <th class="text-center text-wrap align-middle" style="">HORA INGRESO</th>
-                            <th class="text-center text-wrap align-middle" style="">HORA SALIDA</th>
-                            <th class="text-center text-wrap align-middle" style="">ACTIVIDAD</th>
-                            <th class="text-center text-wrap align-middle" style="">TRANSPORTE</th>
-                            <th class="text-center text-wrap " style="">RESPONSABLE INGRESO</th>
-                            <th class="text-center text-wrap" style="">RESPONSABLE SALIDA</th>
+                            <th class="text-sm text-center align-middle text-wrap">ORD</th>
+                            <th class="text-sm text-center text-wrap" style="">APELLLIDOS Y NOMBRES</th>
+                            <th class="text-sm text-center align-middle text-wrap" style="">CÉDULA</th>
+                            <th class="text-sm text-center text-wrap align-middle" style="">HORA INGRESO</th>
+                            <th class="text-sm text-center text-wrap align-middle" style="">HORA SALIDA</th>
+                            <th class="text-sm text-center text-wrap align-middle" style="">ACTIVIDAD</th>
+                            <th class="text-sm text-center text-wrap align-middle" style="">TRANSPORTE</th>
+                            <th class="text-sm text-center text-wrap " style="">RESPONSABLE INGRESO</th>
+                            <th class="text-sm text-center text-wrap" style="">RESPONSABLE SALIDA</th>
 
                         </tr>
                     </thead>
@@ -114,31 +114,31 @@
                         <?php $ord = 0; ?>
                         @foreach ($civiliansOut as $item2)
                             <tr>
-                                <td class="align-middle text-wrap" >
+                                <td class="text-sm align-middle text-wrap" >
                                     {{ ++$ord }}
                                 </td>
-                                <td class="text-wrap align-middle">
+                                <td class="text-sm text-wrap align-middle">
                                     {{ $item2->civilian }}
                                 </td>
-                                <td class="text-center text-wrap align-middle">
+                                <td class="text-sm text-center text-wrap align-middle">
                                     {{ $item2->identification_card }}
                                 </td>
-                                <td class="align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
+                                <td class="text-sm align-middle text-wrap align-middle text-center" style="min-width: 100px; max-width:300px">
                                     {{ $item2->hour_in }}
                                 </td>
-                                <td class="align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
+                                <td class="text-sm align-middle text-wrap align-middle text-center" style="min-width: 100px; max-width:300px">
                                     {{ $item2->hour_out }}
                                 </td>
-                                <td class="align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
+                                <td class="text-sm align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
                                     {{ $item2->activity }}
                                 </td>
-                                <td class="align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
+                                <td class="text-sm align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
                                     {{ $item2->transport }}
                                 </td>
-                                <td class="align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
+                                <td class="text-sm align-middle text-wrap align-middle text-center" style="min-width: 100px; max-width:300px">
                                     {{ $item2->user_in }}
                                 </td>
-                                <td class="align-middle text-wrap align-middle" style="min-width: 100px; max-width:300px">
+                                <td class="text-sm align-middle text-wrap align-middle text-center" style="min-width: 100px; max-width:300px">
                                     {{ $item2->user_out }}
                                 </td>
                             </tr>

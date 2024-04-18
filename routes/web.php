@@ -9,6 +9,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\MilitaryUnitController;
 use App\Http\Controllers\PassesController;
+use App\Http\Controllers\VehicleLogController;
 
 
 Route::get('/', function () {
@@ -86,6 +87,15 @@ Route::post('/passes/destroy/{id}', [PassesController::class, 'destroy'])->middl
 Route::post('/passes/destroy2/{id}', [PassesController::class, 'destroy2'])->middleware('auth')->name('passes.destroy2');
 
 /****************** FIN RUTAS PARA ADMINISTRACIÓN DE SALVOCONDUCTOS ****************/
+
+/****************** INICIO RUTAS PARA BITÁCORA VEHICULAR  ****************/
+Route::get('/vehicleLog', [VehicleLogController::class, 'index'])->middleware('auth')->name('vehicleLog.index');
+Route::post('/vehicleLog/create/{id}', [VehicleLogController::class,'create'])->middleware('auth')->name("vehicleLog.create");
+Route::post('/vehicleLog/store', [VehicleLogController::class,'store'])->middleware('auth')->name("vehicleLog.store");
+Route::get('/obtener-datos-vehiculo/{placa}', [VehicleLogController::class, 'obtenerDatosVehiculo'])->middleware('auth')->name('vehicleLog.getVehicleData');
+Route::post('/vehicleLog/update', [VehicleLogController::class, 'update'])->middleware('auth')->name('vehicleLog.update');
+/****************** FIN RUTAS PARA BITÁCORA VEHICULAR ****************/
+
 
 
 Auth::routes();

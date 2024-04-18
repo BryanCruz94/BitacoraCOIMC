@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('destination');
             $table->string('mission');
             $table->boolean('authorized_commander')->default(false);
+            $table->boolean('ejecuted')->default(false);
             $table->foreignId('user_id');
             $table->foreignId('vehicle_id');
             $table->foreignId('driver_id');
