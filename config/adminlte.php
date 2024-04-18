@@ -331,7 +331,7 @@ return [
         ],
         [
             'text' => 'REPORTES',
-            'url' => 'admin/settings',
+            'url' => 'reports',
             'icon' => 'fas fa-fw fa-tasks',
         ],
         [
