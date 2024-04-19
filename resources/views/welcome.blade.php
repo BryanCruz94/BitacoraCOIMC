@@ -16,6 +16,9 @@
         src="{{ asset('vendor/adminlte/dist/img/FFAA_WP.jpg') }}" alt="IMAGEN FONDO">
     </div>
 </div>
+
+@include('layouts.footer')
+
 @stop
 
 

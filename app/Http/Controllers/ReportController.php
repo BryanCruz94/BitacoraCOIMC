@@ -26,8 +26,10 @@ class ReportController extends Controller
 
         $novelties = Novelty::join('users as u', 'novelties.user_id', '=', 'u.id')
             ->join('ranks as r', 'u.rank_id', '=', 'r.code')
+            ->where('novelties.hour','>=',$fechaInicio)
+            ->where('novelties.hour','<=',$fechaFin)
             ->orderBy('hour')
-            ->get(['novelties.novelty', 'novelties.hour', DB::raw("CONCAT(r.name,' ', u.names, ' ', u.last_names) as Guard")]);
+            ->get(['novelties.novelty', 'novelties.hour', DB::raw("CONCAT(r.name,' ', u.last_names, ' ', u.names) as Guard")]);
 
         $pdf = Pdf::loadView('report.reporteNovedades', compact('novelties', 'fechaInicio', 'fechaFin'))->setPaper('a4', 'portrait');
 
@@ -64,6 +66,8 @@ class ReportController extends Controller
                 DB::raw("CONCAT(RO.name, ' ', UO.last_names, ' ', UO.names) as guardOut"),
                 DB::raw("CONCAT(RI.name, ' ', UI.last_names, ' ', UI.names) as guardIn")
             )
+            ->where('vehicle_logs.departure_time','>=',$fechaInicio)
+            ->where('vehicle_logs.departure_time','<=',$fechaFin)
             ->orderBy('vehicle_logs.departure_time')
             ->get();
 
@@ -108,6 +112,8 @@ class ReportController extends Controller
                 DB::raw("CONCAT(RI.name, ' ', UI.last_names, ' ', UI.names) as user_in"),
                 DB::raw("CONCAT(RO.name, ' ', UO.last_names, ' ', UO.names) as user_out")
             )
+            ->where('civilian_logs.hour_in','>=',$fechaInicio)
+            ->where('civilian_logs.hour_in','<=',$fechaFin)
             ->orderByDesc('civilian_logs.hour_in')
             ->get();
 
