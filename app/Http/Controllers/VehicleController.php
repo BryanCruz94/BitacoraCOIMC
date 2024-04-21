@@ -71,14 +71,16 @@ class VehicleController extends Controller
             $vehicle->military_unit_id = $unitUser;
         }
 
-        // Subir la imagen a Cloudinary
-        $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-            'folder' => 'COIMC_PICS', // Reemplaza 'nombre_de_la_carpeta_en_cloudinary' por el nombre de la carpeta que deseas utilizar
-        ])->getSecurePath();
-        $url_img = $uploadedFileUrl; // Aquí puedes asignar el valor de la URL de la imagen a tu campo url_img en la base de datos
+
+        //YA NO SE MOSTRARÁN IMÁGENES
+            // Subir la imagen a Cloudinary
+            // $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
+            //     'folder' => 'COIMC_PICS', // Reemplaza 'nombre_de_la_carpeta_en_cloudinary' por el nombre de la carpeta que deseas utilizar
+            // ])->getSecurePath();
+            // $url_img = $uploadedFileUrl; // Aquí puedes asignar el valor de la URL de la imagen a tu campo url_img en la base de datos
 
 
-        $vehicle->img_url = $url_img;
+        $vehicle->img_url = NULL;
         $vehicle->is_active = true;
         $vehicle->save();
         return redirect()->route('vehicles.index');
@@ -109,14 +111,15 @@ class VehicleController extends Controller
         $vehicle->plate = $request->plate;
         $vehicle->in_barracks = $request->has('in_barracks');
 
-        if ($request->hasFile('image')) {
-            // Subir la imagen a Cloudinary
-            $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
-                'folder' => 'COIMC_PICS', // Reemplaza 'nombre_de_la_carpeta_en_cloudinary' por el nombre de la carpeta que deseas utilizar
-            ])->getSecurePath();
-            $url_img = $uploadedFileUrl; // Aquí puedes asignar el valor de la URL de la imagen a tu campo url_img en la base de datos
-            $vehicle->img_url = $url_img;
-        }
+        // YA NO SE MOSTRARÁN IMÁGENES
+            // if ($request->hasFile('image')) {
+            //     // Subir la imagen a Cloudinary
+            //     $uploadedFileUrl = Cloudinary::upload($request->file('image')->getRealPath(), [
+            //         'folder' => 'COIMC_PICS', // Reemplaza 'nombre_de_la_carpeta_en_cloudinary' por el nombre de la carpeta que deseas utilizar
+            //     ])->getSecurePath();
+            //     $url_img = $uploadedFileUrl; // Aquí puedes asignar el valor de la URL de la imagen a tu campo url_img en la base de datos
+            //     $vehicle->img_url = $url_img;
+            // }
 
         if ($roleUser == 'Admin') {
             $vehicle->military_unit_id = $request->military_unit_id;

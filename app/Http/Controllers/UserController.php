@@ -19,7 +19,7 @@ class UserController extends Controller
         $unitUser = $user->military_unit_id;
         $roleUser = $user->roles->first()->name;
 
-        
+
         $users = User::join('military_units as MU', 'users.military_unit_id', '=', 'MU.id')
             ->join('ranks as R', 'users.rank_id', '=', 'R.code')
             ->join('model_has_roles as MR', 'MR.model_id', '=', 'users.id')
@@ -34,7 +34,7 @@ class UserController extends Controller
                 'users.email',
                 'users.is_active'
             )
-            ->orderBy('is_active')
+            ->orderBy('is_active', 'desc')
             ->orderBy('unit')
             ->orderBy('ranks')
             ->orderBy('user')
@@ -61,7 +61,7 @@ class UserController extends Controller
         $user->identification_card = $request->identification_card;
         $user->rank_id = $request->rank_id;
         $user->military_unit_id = $request->military_unit_id;
-        $user->is_active = $request->has('is_active');
+        $user->is_active = $request->is_active;
 
         if ($request->password != null) {
             if ($request->password == $request->password_confirmation) {

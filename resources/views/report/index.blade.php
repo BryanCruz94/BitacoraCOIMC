@@ -13,9 +13,10 @@
 @section('content')
     <div class="row justify-content-around">
 
-        <form action="{{route('reports.novelty')}}" method="POST" style="display: flex" class="col-4">
+        <form action="{{route('reports.novelty')}}" method="POST" style="display: flex"
+        class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12 justify-content-center">
             @csrf
-            <div class="card card-danger" style="max-width: 80% ; justify-self: center">
+            <div class="card card-danger align-self-center" style="max-width: 80% ; justify-self: center">
                 <div class="card-header">
                     <h3 class="card-title text-center">REPORTE DE NOVEDADES</h3>
                 </div>
@@ -50,7 +51,8 @@
             </div>
         </form>
 
-        <form action="{{route('reports.vehicleLog')}}" method="POST" style="display: flex" class="col-4">
+        <form action="{{route('reports.vehicleLog')}}" method="POST" style="display: flex"
+        class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12 justify-content-center">
             @csrf
             <div class="card card-danger" style="max-width: 80% ; justify-self: center">
                 <div class="card-header">
@@ -90,7 +92,8 @@
 
 
 
-        <form action="{{route('reports.civilianLog')}}" method="POST" style="display: flex" class="col-4">
+        <form action="{{route('reports.civilianLog')}}" method="POST" style="display: flex"
+        class="col-lg-4 col-xl-4 col-md-6 col-sm-12 col-xs-12 justify-content-center">
             @csrf
             <div class="card card-danger" style="max-width: 80% ; justify-self: center">
                 <div class="card-header">

@@ -74,12 +74,13 @@
                                 </div>
                             @endif
 
-                            <div class="col-4">
+                            {{-- YA NO SE GUARDARÁ IMÁGENES --}}
+                            {{-- <div class="col-4">
                                 <div class="form-group">
                                     <label for="image">Imagen: </label>
                                     <input type="file" name="image" id="image" class="form-control">
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <input type="hidden" name="id" value="{{ $vehicle->id }}">
 

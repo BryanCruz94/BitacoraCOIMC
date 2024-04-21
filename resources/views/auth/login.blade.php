@@ -74,7 +74,7 @@
     </div>
 
     <!-- Iconos de imágenes en la parte inferior centrada -->
-    <div style="position: fixed; bottom: 20px; width: 100%; text-align: center;">
+    <div class="d-none d-md-block" style="position: fixed; bottom: 20px; width: 100%; text-align: center;">
         <img src="{{ asset('images/geo.png') }}" alt="Icono 1" style="width: 100px; height: 100px; margin: 0 20px;">
         <img src="{{ asset('images/im.png') }}" alt="Icono 2" style="width: 100px; height: 100px; margin: 0 20px;">
         <img src="{{ asset('images/uempe.png') }}" alt="Icono 3" style="width: 100px; height: 120px; margin: 0 20px;">

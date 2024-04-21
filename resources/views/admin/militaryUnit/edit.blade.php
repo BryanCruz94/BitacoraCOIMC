@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
+                        <a href="{{ route('military_units.index') }}" class="btn btn-danger m-2">Regresar</a>
                         <button type="submit" id="btnIngreso" class="btn btn-success">GUARDAR</button>
                     </div>
                 </form>

@@ -27,7 +27,7 @@ class RoleSeeder extends Seeder
 
         //PARA SALVOCONDUCTOS
         Permission::create(['name' => 'pass.view'])->syncRoles([$role1, $role2, $role3]);
-        Permission::create(['name' => 'pass.create'])->syncRoles([ $role2]);
+        Permission::create(['name' => 'pass.create'])->syncRoles([ $role3]);
         Permission::create(['name' => 'pass.authorized'])->syncRoles([$role2]);
 
         //PARA ADMINISTRADOR

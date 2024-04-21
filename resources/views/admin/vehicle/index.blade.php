@@ -41,7 +41,7 @@
                                 <th class="text-center">PLACA</th>
                                 <th class="text-center">DESCRIPCIÓN</th>
                                 <th class="text-center">LUGAR</th>
-                                <th class="text-center">IMAGEN</th>
+                                {{-- <th class="text-center">IMAGEN</th> --}}
                                 <th class="text-center">ACTUALIZAR</th>
                                 <th class="text-center">ELIMINAR</th>
                             </tr>
@@ -68,10 +68,10 @@
                                             <span class="badge badge-danger">Fuera del Fuerte</span>
                                         @endif
                                     </td>
-                                    <td class="text-center">
+                                    {{-- <td class="text-center">
                                         <img src="{{ $dato->img_url }}" alt="Imagen del vehículo" class="img-thumbnail"
                                             style="width: 125px; height: 100px;">
-                                    </td>
+                                    </td> --}}
                                     <td class="text-center align-middle">
                                         <form action="{{ route('vehicles.edit', $dato->id) }}" method="POST">
                                             @csrf
@@ -155,12 +155,13 @@
                                 </div>
                             @endif
 
-                            <div class="col-4">
+                            {{-- YA NO SE GUARDARÁN IMÁGENES --}}
+                            {{-- <div class="col-4">
                                 <div class="form-group">
                                     <label for="image">Imagen: </label>
                                     <input type="file" name="image" id="image" class="form-control" required>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                         </div>
@@ -173,9 +174,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 @stop
 

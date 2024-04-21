@@ -27,7 +27,7 @@
             <a class="navbar-brand" href="{{ url('/') }}" style="font-weight: bold; font-family:'Arial Black', sans-serif;font-size: 24px;
                 background-image: url('{{ asset('images/ecu.png') }}');
                 background-size:46px; background-repeat: no-repeat; padding-left: 50px;">
-                FUERTE MILITAR ECUADOR
+                FUERTE MILITAR ECUADOR - SISTEMA ARGOS
                 <i class="fas fa-flag" style="margin-left: 5px;"></i>
             </a>
 
