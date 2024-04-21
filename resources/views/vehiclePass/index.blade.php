@@ -93,13 +93,17 @@
                                             @csrf
                                             <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>
                                         </form>
+                                    @elseif ($item->ejecuted == 1)
+                                        <form action="{{ route('reports.pass', $item->id) }}" method="POST"
+                                            class="mt-1">
+                                            @csrf
+                                            <input type="submit" class="btn btn-info text-xs" value= "PDF"></input>
+                                        </form>
                                     @else
                                         <button class="btn btn-secondary text-xs" disabled>ELIMINAR</button>
+                                        <button class="btn btn-secondary text-xs" disabled>PDF</button>
                                     @endif
-                                    <form action="{{ route('reports.pass', $item->id) }}" method="POST">
-                                        @csrf
-                                        <input type="submit" class="btn btn-info text-xs" value= "PDF"></input>
-                                    </form>
+
                                 </td>
 
                             </tr>
