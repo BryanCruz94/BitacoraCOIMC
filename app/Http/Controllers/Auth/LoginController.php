@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+
 class LoginController extends Controller
 {
     /*
@@ -19,6 +20,32 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(\Illuminate\Http\Request $request)
+
+    {
+        // Intenta autenticar al usuario
+        $credentials = $this->credentials($request);
+        if (!auth()->attempt($credentials, $request->boolean('remember'))) {
+            return false;
+        }
+
+        // Verifica si el usuario está activo
+        if (auth()->user()->is_active !== 1) {
+            auth()->logout(); // Desconecta al usuario
+            return false;
+        }
+
+        return true; // El usuario está activo y autenticado correctamente
+    }
+
+
 
     /**
      * Where to redirect users after login.

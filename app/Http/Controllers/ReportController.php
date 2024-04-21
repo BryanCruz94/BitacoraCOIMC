@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\VehicleLog;
 use App\Models\CivilianLog;
+use App\Models\Pass;
 
 
 class ReportController extends Controller
@@ -120,5 +121,33 @@ class ReportController extends Controller
         $pdf = Pdf::loadView('report.reporteCiviles', compact('civilianLogs', 'fechaInicio', 'fechaFin'))->setPaper('a4', 'portrait');
 
         return $pdf->download('ReportePersonalCivil' . $fechaHoy . '.pdf');
+    }
+
+    public function imprimirSalvocunducto($id){
+        $fechaHoy =  Carbon::now()->format('dMY-H:i');
+        $pass = Pass::join('users as UA', 'UA.id', '=', 'passes.authorized_user_id')
+        ->join('ranks as RA', 'RA.code', '=', 'UA.rank_id')
+        ->join('users as UL', 'UL.id', '=', 'passes.user_id')
+        ->join('ranks as RL', 'RL.code', '=', 'UL.rank_id')
+        ->join('vehicles as V', 'V.id', '=', 'passes.vehicle_id')
+        ->join('drivers as D', 'D.id', '=', 'passes.driver_id')
+        ->join('ranks as RD', 'RD.code', '=', 'D.rank_id')
+        ->join('military_units as M', 'M.id', '=', 'V.military_unit_id')
+        ->select(
+            'passes.id',
+            'passes.destination',
+            'passes.mission',
+            DB::raw("CONCAT(RL.name, ' ', UL.last_names, ' ', UL.names) as user_logistic"),
+            DB::raw("CONCAT(RA.name, ' ', UA.last_names, ' ', UA.names) as user_authorized"),
+            DB::raw("CONCAT(RD.name, ' ', D.last_names, ' ', D.names) as driver"),
+            'V.plate',
+            'V.description',
+            'M.name as military_unit',)
+        ->where('passes.id', $id)
+        ->first();
+
+
+        $pdf = PDF::loadView('report.salvoconducto', compact( 'fechaHoy','pass'))->setPaper('a4', 'portrait');
+        return $pdf->download('Salvoconducto' . $fechaHoy . '.pdf');
     }
 }

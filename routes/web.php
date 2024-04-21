@@ -101,6 +101,7 @@ Route::get('/reports', [ReportController::class, 'index'])->middleware('auth')->
 Route::post('/reports/novelty', [ReportController::class, 'generateNovelties'])->middleware('auth')->name('reports.novelty');
 Route::post('/reports/vehicleLog', [ReportController::class, 'generateVehicleLog'])->middleware('auth')->name('reports.vehicleLog');
 Route::post('/reports/civilianLog', [ReportController::class, 'generateCivilianLog'])->middleware('auth')->name('reports.civilianLog');
+Route::post('/reports/pass/{id}', [ReportController::class, 'imprimirSalvocunducto'])->middleware('auth')->name('reports.pass');
 /****************** FIN RUTAS PARA REPORTES ****************/
 
 

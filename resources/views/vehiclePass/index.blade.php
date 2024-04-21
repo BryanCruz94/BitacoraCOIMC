@@ -94,8 +94,12 @@
                                             <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>
                                         </form>
                                     @else
-                                        -
+                                        <button class="btn btn-secondary text-xs" disabled>ELIMINAR</button>
                                     @endif
+                                    <form action="{{ route('reports.pass', $item->id) }}" method="POST">
+                                        @csrf
+                                        <input type="submit" class="btn btn-info text-xs" value= "PDF"></input>
+                                    </form>
                                 </td>
 
                             </tr>
