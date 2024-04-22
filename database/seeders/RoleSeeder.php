@@ -18,9 +18,11 @@ class RoleSeeder extends Seeder
         $role2 = Role::create(['name' => 'Commander']);
         $role3 = Role::create(['name' => 'Logistic']);
         $role4 = Role::create(['name' => 'Guard']);
+        $role5 = Role::create(['name' => 'Newer']);
+
 
         //PARA UN SOLO ROL A UN PERMISO
-        //Permission::create(['name' => 'admin.index'])->assignRole($role1);
+        Permission::create(['name' => 'new.index'])->assignRole($role5);
 
         //PARA VARIOS ROLES A UN PERMISO
         Permission::create(['name' => 'home'])->syncRoles([$role1, $role2, $role3, $role4]);

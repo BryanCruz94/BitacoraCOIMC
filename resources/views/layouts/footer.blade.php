@@ -3,7 +3,7 @@
         <div class="float-right">
             Versión 1.0
         </div>
-        <strong>© {{ date('Y') }} CQBS - ARGOS</strong>. Todos los derechos reservados.
+        <strong>© {{ date('Y') }} CQBS - ARGOS</strong>.
     </div>
 </footer>
 
@@ -12,6 +12,6 @@
         <div class="float-right">
             Versión 1.0
         </div>
-        <strong class="ml-5 pl-5">© {{ date('Y') }} CQBS - SISTEMA ARGOS</strong>. Todos los derechos reservados.
+        <strong class="ml-5 pl-5">© {{ date('Y') }} CQBS - SISTEMA ARGOS</strong>.
     </div>
 </footer>

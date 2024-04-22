@@ -306,12 +306,14 @@ return [
             'url' => 'binacle',
             'icon' => 'far fa-fw fa-file',
             'label_color' => 'success',
+            'can' => 'home',
         ],
 
         [
             'text' => 'MOVIMIENTO VEHICULAR',
             'url' => 'vehicleLog',
             'icon' => 'fas fa-car',
+            'can' => 'home',
         ],
         [
             'text' => 'REGISTRO PERSONAL CIVIL',
@@ -330,6 +332,7 @@ return [
             'text' => 'REPORTES',
             'url' => 'reports',
             'icon' => 'fas fa-fw fa-tasks',
+            'can' => 'home',
         ],
         [
             'text' => 'GENERAR SALVOCONDUCTO',

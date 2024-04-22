@@ -23,12 +23,12 @@ Route::get('/home', function () {
 
 Route::get('/admin', function () {
     return view('admin.index');
-})->middleware('auth')->name('admin.index');
+})->middleware('can:admin.index')->middleware('auth')->name('admin.index');
 
 
 /****************** INICIO RUTAS PARA LA BITÁCOTA ****************/
-Route::get('/binacle', [NoveltyController::class, 'index'])->middleware('auth')->name('novelty.index');
-Route::post('/binnacle/newNovelty', [NoveltyController::class,'store'])->middleware('auth')->name("novelty.store");
+Route::get('/binacle', [NoveltyController::class, 'index'])->middleware('can:home')->middleware('auth')->name('novelty.index');
+Route::post('/binnacle/newNovelty', [NoveltyController::class,'store'])->middleware('can:home')->middleware('auth')->name("novelty.store");
 /****************** FIN RUTAS PARA LA BITÁCOTA ****************/
 
 
@@ -89,15 +89,15 @@ Route::post('/passes/destroy2/{id}', [PassesController::class, 'destroy2'])->mid
 /****************** FIN RUTAS PARA ADMINISTRACIÓN DE SALVOCONDUCTOS ****************/
 
 /****************** INICIO RUTAS PARA BITÁCORA VEHICULAR  ****************/
-Route::get('/vehicleLog', [VehicleLogController::class, 'index'])->middleware('auth')->name('vehicleLog.index');
-Route::post('/vehicleLog/create/{id}', [VehicleLogController::class,'create'])->middleware('auth')->name("vehicleLog.create");
+Route::get('/vehicleLog', [VehicleLogController::class, 'index'])->middleware('can:home')->middleware('auth')->name('vehicleLog.index');
+Route::post('/vehicleLog/create/{id}', [VehicleLogController::class,'create'])->middleware('can:home')->middleware('auth')->name("vehicleLog.create");
 Route::post('/vehicleLog/store', [VehicleLogController::class,'store'])->middleware('auth')->name("vehicleLog.store");
-Route::get('/obtener-datos-vehiculo/{placa}', [VehicleLogController::class, 'obtenerDatosVehiculo'])->middleware('auth')->name('vehicleLog.getVehicleData');
+Route::get('/obtener-datos-vehiculo/{placa}', [VehicleLogController::class, 'obtenerDatosVehiculo'])->middleware('can:home')->middleware('auth')->name('vehicleLog.getVehicleData');
 Route::post('/vehicleLog/update', [VehicleLogController::class, 'update'])->middleware('auth')->name('vehicleLog.update');
 /****************** FIN RUTAS PARA BITÁCORA VEHICULAR ****************/
 
 /****************** INICIO RUTAS PARA REPORTES ****************/
-Route::get('/reports', [ReportController::class, 'index'])->middleware('auth')->name('reports.index');
+Route::get('/reports', [ReportController::class, 'index'])->middleware('can:home')->middleware('auth')->name('reports.index');
 Route::post('/reports/novelty', [ReportController::class, 'generateNovelties'])->middleware('auth')->name('reports.novelty');
 Route::post('/reports/vehicleLog', [ReportController::class, 'generateVehicleLog'])->middleware('auth')->name('reports.vehicleLog');
 Route::post('/reports/civilianLog', [ReportController::class, 'generateCivilianLog'])->middleware('auth')->name('reports.civilianLog');

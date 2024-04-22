@@ -47,7 +47,7 @@ class RegisterController extends Controller
         ]);
 
         DB::table('model_has_roles')->insert([
-            'role_id' =>4,
+            'role_id' =>5,
             'model_type' => 'App\Models\User',
             'model_id' => $user->id,
         ]);

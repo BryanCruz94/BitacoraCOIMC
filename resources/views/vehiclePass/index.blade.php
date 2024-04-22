@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CONSIGNAS')
+@section('title', 'SALVOCONDUCTOS')
 
 @section('content_header')
     <div class="row justify-content-center align-item-center">
@@ -93,7 +93,7 @@
                                             @csrf
                                             <input type="submit" class="btn btn-danger text-xs" value= "ELIMINAR"></input>
                                         </form>
-                                    @elseif ($item->ejecuted == 1)
+                                    @elseif ($item->authorized_commander == 1)
                                         <form action="{{ route('reports.pass', $item->id) }}" method="POST"
                                             class="mt-1">
                                             @csrf

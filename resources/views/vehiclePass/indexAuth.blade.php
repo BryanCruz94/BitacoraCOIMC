@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'CONSIGNAS')
+@section('title', 'AUTORIZACIÓN SALIDA')
 
 @section('content_header')
     <div class="row justify-content-center align-item-center">

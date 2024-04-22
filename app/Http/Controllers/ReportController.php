@@ -148,6 +148,6 @@ class ReportController extends Controller
 
 
         $pdf = PDF::loadView('report.salvoconducto', compact( 'fechaHoy','pass'))->setPaper('a4', 'portrait');
-        return $pdf->download('Salvoconducto' . $fechaHoy . '.pdf');
+        return $pdf->download('Salida_' .$pass->plate . $fechaHoy . '.pdf');
     }
 }
