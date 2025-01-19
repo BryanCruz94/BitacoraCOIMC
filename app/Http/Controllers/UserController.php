@@ -65,7 +65,7 @@ class UserController extends Controller
 
         if ($request->password != null) {
             if ($request->password == $request->password_confirmation) {
-                $user->password = Hash::make('admin');
+                $user->password = Hash::make($request->password);
             } else {
                 $ranks = Rank::all();
                 $military_units = MilitaryUnit::all();
